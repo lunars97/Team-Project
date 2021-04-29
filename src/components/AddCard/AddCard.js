@@ -1,4 +1,5 @@
 import React, { useContext, useState } from "react";
+import { Link } from "react-router-dom";
 import { productContext } from "../../contexts/ProductContext/ProductContext";
 import "../AddCard/AddCard.css";
 const AddCard = () => {
@@ -167,6 +168,9 @@ const AddCard = () => {
                             Добавить
                         </button>
                     </form>
+                    <Link to="/list">
+                        <button className="main-btn">На главную</button>
+                    </Link>
                 </div>
             </div>
         </>

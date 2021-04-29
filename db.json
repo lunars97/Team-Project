@@ -1,27 +1,16 @@
 {
-  "cars": [
-    {
-      "img": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpapers.gg%2Fwp-content%2Fuploads%2F2017%2F08%2FAvatar-2009-Neytiri-1920x1280.jpg&f=1&nofb=1",
-      "brand": "4",
-      "dateOfRelease": "2012",
-      "engine": "jjfjfjfjf",
-      "gearBox": "jjfjjjfjf",
-      "condition": "jjdjdjdj",
-      "description": "fjfjfjfj",
-      "name": "Alekbarova Aizhan",
-      "telephone": "58962353356",
-      "id": 2
-    },
-    {
-      "img": "",
-      "brand": "",
-      "dateOfRelease": "",
-      "engine": "",
-      "gearBox": "",
-      "condition": "",
-      "telephone": "",
-      "description": "",
-      "id": 3
-    }
-  ]
+    "cars": [
+        {
+            "img": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpapers.gg%2Fwp-content%2Fuploads%2F2017%2F08%2FAvatar-2009-Neytiri-1920x1280.jpg&f=1&nofb=1",
+            "brand": "4",
+            "dateOfRelease": "2012",
+            "engine": "jjfjfjfjf",
+            "gearBox": "jjfjjjfjf",
+            "condition": "jjdjdjdj",
+            "description": "fjfjfjfj",
+            "name": "Alekbarova Aizhan",
+            "telephone": "58962353356",
+            "id": 2
+        }
+    ]
 }

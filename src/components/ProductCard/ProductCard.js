@@ -4,7 +4,10 @@ import "./../ProductCard/ProductCard.css";
 
 const ProductCard = (props) => {
     return (
-        <Link>
+        <Link
+            to={`/details/${props.id}`}
+            style={{ textDecoration: "none", color: "black" }}
+        >
             <div className="card">
                 <section>
                     <img className="card-img" src={props.item.img} />
