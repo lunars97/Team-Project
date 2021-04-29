@@ -1,0 +1,75 @@
+header{
+    width: 1020px;
+    height:50px;
+    background-color: #008ac9;
+    margin:0 auto;
+    padding: 5px;
+    display:flex;
+    flex-wrap:nowrap;
+    align-items: center;
+    justify-content: space-around;
+}
+.header_icon_link{
+    background: url("https://www.mashina.kg/bundles/client/default/img/mashinka-name-header.svg") no-repeat left center;
+    background-size: 160px;
+  width: 175px;
+  height: 32px;
+  color: #fff;
+  padding: 0 25px 0 55px;
+  display: inline-block;
+  margin: 5px 0 -5px;
+}
+
+
+.nav_links{
+ 
+    width: 600px;
+    text-align: center;
+}
+.car_link{
+    margin-left: 10px;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.search_input{
+    height: 27px;
+    width: 200px;
+    border-radius: 4px;
+    border: 1px dotted white;
+    margin-left: 50px;
+
+}
+
+.search_btn{
+    width: 55px;
+    margin-left: 20px;
+    height:29px;
+    background-color: #008ac9;
+    border: 1px dotted black;
+}
+
+
+.under_header{
+    width: 1020px;
+    height:25px;
+    
+    margin: 0 auto;
+    padding: 5px;
+    display: flex;
+    flex-wrap: nowrap;
+    box-shadow: 0 0 5px 1px #ccc;
+    justify-content: space-between;
+}
+.under_links{
+    width: 400px;
+  
+}
+
+.reklama{
+    width: 150px;
+    
+    font-weight: bold;
+    color:#008ac9;
+}
