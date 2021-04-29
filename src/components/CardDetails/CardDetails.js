@@ -15,6 +15,14 @@ const CardDetails = (props) => {
         };
     };
 
+    const addComment = (comment) => {
+        let {data: {comments}} = axios('url' + id)
+
+        comments.push(comment)
+
+        axios.patch('url' + id, comments)
+    }
+
     const handleSave = () => {
         getCardDetails(props.match.params.id, editedCard);
         setModal(true);

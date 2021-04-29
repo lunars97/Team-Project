@@ -48,7 +48,8 @@ const AddCard = () => {
     //         telephone: "",
     //     });
     // };
-    function handleClick() {
+    function handleClick(e) {
+        e.preventDefault();
         let newObj = {
             img: img,
             brand: brand,
@@ -59,6 +60,7 @@ const AddCard = () => {
             price: price,
             description: description,
         };
+        console.table(newObj);
         postNewCard(newObj);
         setImg("");
         setBrand("");
@@ -73,8 +75,8 @@ const AddCard = () => {
         <>
             <div className="main_inp-container">
                 <div className="inp-container">
-                    <form className="form-container">
-                        <h2>Добавить объявление</h2>
+                    <form className="form-container" onSubmit={handleClick}>
+                        <h2 style={{ color: item.ca }}>Добавить объявление</h2>
                         <p>
                             <input
                                 className="inp-add"
@@ -164,9 +166,7 @@ const AddCard = () => {
                                 onChange={(e) => setDescription(e.target.value)}
                             />
                         </p>
-                        <button className="inpBtn" onClick={handleClick}>
-                            Добавить
-                        </button>
+                        <button className="inpBtn">Добавить</button>
                     </form>
                     <Link to="/list">
                         <button className="main-btn">На главную</button>
