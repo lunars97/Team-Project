@@ -29,3 +29,10 @@ h2 {
 .inpBtn {
     padding: 5px 15px;
 }
+.main-btn {
+    position: relative;
+    outline: none;
+    padding: 3px 10px;
+    float: right;
+    background-color: brown;
+}

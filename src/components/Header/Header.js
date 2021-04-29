@@ -12,7 +12,7 @@ const Header = () => {
         <>
         <header>
            <Link to="/home" className="header_icon_link"/>
-            <div class="nav_links">
+            <div className="nav_links">
            <Link to="/home" className="car_link">Легковые </Link>
            <Link to="/home" className="car_link">Грузовые </Link>
            <input placeholder="...пример: honda accord" className="search_input" type="text"></input>
