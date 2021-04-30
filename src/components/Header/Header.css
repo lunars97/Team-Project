@@ -73,3 +73,16 @@ header{
     font-weight: bold;
     color:#008ac9;
 }
+
+.reklam_block{
+    width: 1030px;
+    border: 1px solid green;
+    margin:0 auto;
+}
+.advertising{
+    width: 727px;
+    height: 90px;
+ 
+    border: 1px solid red;
+    background: url('https://www.mashina.kg/bundles/client/default/img/banners/avangard-top-26-apr.gif') no-repeat;
+}

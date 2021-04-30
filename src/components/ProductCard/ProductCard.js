@@ -20,7 +20,10 @@ const ProductCard = (props) => {
                         <span>{props.item.dateOfRelease}</span>
                         <span>, 2.0л </span>
                         <span>{props.item.gearBox}</span>
-                        <i className="color-icon" title="черный"></i>
+                        <span
+                            style={{ backgroundColor: props.item.color }}
+                            title="черный"
+                        ></span>
                     </div>
                     <div className="body_type">
                         <span>универсал </span>
