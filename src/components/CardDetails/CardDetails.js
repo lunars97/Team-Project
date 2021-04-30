@@ -2,10 +2,9 @@ import React, { useContext, useEffect, useState } from "react";
 import { productContext } from "../../contexts/ProductContext/ProductContext";
 import "./../CardDetails/CardDetails.css";
 const CardDetails = (props) => {
-    const { getCardDetails, cardDetails, setModal } = useContext(
-        productContext
-    );
+    const { getCardDetails, cardDetails } = useContext(productContext);
 
+    const [editStatus, setEditStatus] = useState(false);
     const [editedCard, setEditedCard] = useState();
 
     const handleValue = (e) => {
@@ -13,12 +12,25 @@ const CardDetails = (props) => {
             ...editedCard,
             [e.target.name]: e.target.value,
         };
+        setEditedCard(newCard);
     };
+    // const handleSave = () => {
+    //     saveCard(props.match.params.id, editedCard);
+    //     setEditedCard(false);
+    // };
 
-    const handleSave = () => {
-        getCardDetails(props.match.params.id, editedCard);
-        setModal(true);
-    };
+    // const addComment = (comment) => {
+    //     let {data: {comments}} = axios('url' + id)
+
+    //     comments.push(comment)
+
+    //     axios.patch('url' + id, comments)
+    // }
+
+    // const handleSave = () => {
+    //     getCardDetails(props.match.params.id, editedCard);
+    //     setModal(true);
+    // };
 
     useEffect(() => {
         getCardDetails(props.match.params.id);
@@ -26,81 +38,6 @@ const CardDetails = (props) => {
     console.log(props);
     return (
         <div>
-            <div className="dropdown" style={{ float: "right" }}>
-                <button className="dropbtn">Settings</button>
-                <div className="dropdown-content">
-                    <a href="#">Delete</a>
-                    <a href="#">Edit</a>
-                </div>
-            </div>
-            <div className="main-modal">
-                <div className="inner-modal">
-                    <button className="close-btn">✖️</button>
-                    <div className="close">
-                        <input
-                            onChange={handleValue}
-                            // value={}
-                            name="img"
-                            type="text"
-                            placeholder="Изображение"
-                            className="inpModal"
-                        />
-                        <input
-                            onChange={handleValue}
-                            name="brand"
-                            type="text"
-                            className="inpModal"
-                            placeholder="Марка"
-                        />
-                        <input
-                            onChange={handleValue}
-                            name="dateOfRelease"
-                            type="text"
-                            className="inpModal"
-                            placeholder="Год выпуска"
-                        />
-                        <input
-                            onChange={handleValue}
-                            name="engine"
-                            type="text"
-                            className="inpModal"
-                            placeholder="Двигатель"
-                        />
-                        <input
-                            onChange={handleValue}
-                            name="gearBox"
-                            type="text"
-                            className="inpModal"
-                            placeholder="Коробка"
-                        />
-                        <input
-                            onChange={handleValue}
-                            name="condition"
-                            type="text"
-                            className="inpModal"
-                            placeholder="Состояние"
-                        />
-                        <input
-                            onChange={handleValue}
-                            name="price"
-                            type="text"
-                            className="inpModal"
-                            placeholder="Цена"
-                        />
-                        <input
-                            onChange={handleValue}
-                            name="description"
-                            type="text"
-                            className="inpModal"
-                            placeholder="Описание"
-                        />
-                        <br></br>
-                        <button className="edit-btn" onClick={handleSave}>
-                            Save
-                        </button>
-                    </div>
-                </div>
-            </div>
             {cardDetails ? (
                 <div className="main-wrapper">
                     <img
@@ -114,6 +51,7 @@ const CardDetails = (props) => {
                     <p className="detailed-info">{cardDetails.gearBox}</p>
                     <p className="detailed-info">{cardDetails.condition}</p>
                     <p className="detailed-info">{cardDetails.price}</p>
+                    <span style={{ backgroundColor: props.item.color }}></span>
                     <p className="detailed-info">{cardDetails.description}</p>
                 </div>
             ) : (

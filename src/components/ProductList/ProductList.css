@@ -1,10 +1,28 @@
-.card-list {
+/* .card-list {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 40px;
     grid-auto-rows: 200px;
     margin-top: 50px;
+} */
+.main_container {
+    width: 1020px;
+    padding: 5px;
+    border: 1px solid blue;
+
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
 }
+.cards_container {
+    width: 720px;
+    padding: 5px;
+    border: 1px solid red;
+
+    display: flex;
+    flex-wrap: wrap;
+}
+
 .pageBtn {
     width: 30px;
     height: 30px;
