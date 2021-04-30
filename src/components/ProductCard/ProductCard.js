@@ -12,13 +12,13 @@ const ProductCard = (props) => {
                     <div className="views_icon">
                         <div className="coll">115</div>
                     </div>
-                    <div className="money1 money">{props.item.price}</div>
+                    <div className="money1 money">{props.item.price} &#36;</div>
                     <div className="money2 money">411 280 сом </div>
                 </p>
                 <div className="info_wrapper">
                     <div className="year_miles">
                         <span>{props.item.dateOfRelease}</span>
-                        <span>, 2.0л </span>
+                        <span>{props.item.engine}</span>
                         <span>{props.item.gearBox}</span>
                         <span
                             style={{ backgroundColor: props.item.color }}
@@ -26,11 +26,11 @@ const ProductCard = (props) => {
                         ></span>
                     </div>
                     <div className="body_type">
-                        <span>универсал </span>
-                        <span>, бензин </span>
+                        <span>{props.item.bodyWork}</span>
+                        <span>{props.item.fuel}</span>
                     </div>
                     <div className="volume">
-                        <span>руль справа </span>
+                        <span>{props.item.fuel}</span>
                         <span>{props.item.engine}</span>
                     </div>
 

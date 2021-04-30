@@ -9,12 +9,14 @@ const AddCard = () => {
     const [engine, setEngine] = useState("");
     const [wheel, setWheel] = useState("");
     const [gearBox, setGearBox] = useState("");
+    const [drive, setDrive] = useState("");
     const [carColor, setCarColor] = useState("");
     const [exchange, setExchange] = useState("");
     const [isAvailable, setIsAvailable] = useState("");
     const [bodyWork, setBodyWork] = useState("");
     const [model, setModel] = useState("");
     const [condition, setCondition] = useState("");
+    const [fuel, setFuel] = useState("");
     const [price, setPrice] = useState("");
     const [description, setDescription] = useState("");
     const { postNewCard } = useContext(productContext);
@@ -29,6 +31,7 @@ const AddCard = () => {
             engine: engine,
             wheel: wheel,
             gearBox: gearBox,
+            drive: drive,
             color: carColor,
             bodyWork: bodyWork,
             isAvailable: isAvailable,
@@ -38,18 +41,23 @@ const AddCard = () => {
             exchange: exchange,
             description: description,
         };
-        console.log(newObj);
         postNewCard(newObj);
         setImg("");
+        setExchange("");
         setBrand("");
         setDateOfRelease("");
         setCarColor("");
+        setModel("");
+        setFuel("");
         setEngine("");
         setWheel("");
+        setBodyWork("");
+        setDrive("");
         setGearBox("");
         setCondition("");
         setDescription("");
         setPrice("");
+        setIsAvailable("");
     }
 
     return (
@@ -107,12 +115,34 @@ const AddCard = () => {
                         <p>
                             <input
                                 className="inp-add"
+                                name="fuel"
+                                value={fuel}
+                                type="text"
+                                placeholder="Топливо"
+                                // onChange={handleValues}
+                                onChange={(e) => setFuel(e.target.value)}
+                            />
+                        </p>
+                        <p>
+                            <input
+                                className="inp-add"
                                 name="bodyWork"
                                 value={bodyWork}
                                 type="text"
                                 placeholder="Кузов"
                                 // onChange={handleValues}
                                 onChange={(e) => setBodyWork(e.target.value)}
+                            />
+                        </p>
+                        <p>
+                            <input
+                                className="inp-add"
+                                name="drive"
+                                value={drive}
+                                type="text"
+                                placeholder="Привод"
+                                // onChange={handleValues}
+                                onChange={(e) => setDrive(e.target.value)}
                             />
                         </p>
                         <p>
@@ -130,7 +160,7 @@ const AddCard = () => {
                             <input
                                 className="inp-add"
                                 name="wheel"
-                                value={engine}
+                                value={wheel}
                                 type="text"
                                 placeholder="Руль"
                                 // onChange={handleValues}
