@@ -3,17 +3,6 @@ import { Link } from "react-router-dom";
 import { productContext } from "../../contexts/ProductContext/ProductContext";
 import "../AddCard/AddCard.css";
 const AddCard = () => {
-    // const [card, setCard] = useState({
-    //     img: "",
-    //     brand: "",
-    //     dateOfRelease: "",
-    //     engine: "",
-    //     gearBox: "",
-    //     condition: "",
-    //     description: "",
-    //     name: "",
-    //     telephone: "",
-    // });
     const [img, setImg] = useState("");
     const [brand, setBrand] = useState("");
     const [dateOfRelease, setDateOfRelease] = useState("");
@@ -24,30 +13,6 @@ const AddCard = () => {
     const [description, setDescription] = useState("");
     const { postNewCard } = useContext(productContext);
 
-    // const handleValues = (e) => {
-    //     let newCard = {
-    //         ...card,
-    //         [e.target.img]: e.target.value,
-    //         [e.target.brand]: e.target.value,
-    //     };
-    //     setCard(newCard);
-    //     // console.log(e.target.value);
-    // };
-
-    // const handleClick = () => {
-    //     postNewCard(card);
-    //     setCard({
-    //         img: "",
-    //         brand: "",
-    //         dateOfRelease: "",
-    //         engine: "",
-    //         gearBox: "",
-    //         condition: "",
-    //         description: "",
-    //         name: "",
-    //         telephone: "",
-    //     });
-    // };
     function handleClick(e) {
         e.preventDefault();
         let newObj = {
@@ -76,7 +41,8 @@ const AddCard = () => {
             <div className="main_inp-container">
                 <div className="inp-container">
                     <form className="form-container" onSubmit={handleClick}>
-                        <h2 style={{ color: item.ca }}>Добавить объявление</h2>
+                        {/* <h2 style={{ color: item.carColor }}> */}
+                        <h2 className="form-container">Добавить объявление</h2>
                         <p>
                             <input
                                 className="inp-add"
@@ -168,7 +134,7 @@ const AddCard = () => {
                         </p>
                         <button className="inpBtn">Добавить</button>
                     </form>
-                    <Link to="/list">
+                    <Link to="/">
                         <button className="main-btn">На главную</button>
                     </Link>
                 </div>
