@@ -11,7 +11,7 @@ const Container = () => {
            
             <div className="cards_container">
           
-            <Link to="/">
+            <Link className="links" to="/">
             
                 <div className="car_card">
                 <img  className="card_image" src="https://im.mashina.kg/tachka/images//0/4/4/044dc81710c369c4e25302b2243f58a6_240x180.jpg"/>
@@ -52,14 +52,25 @@ const Container = () => {
 
                     </div>
                 </div>
-                </div>   
-
-                
-                 
+                </div>    
             </Link>
+
+            
+
+
+
+            
        
 
             
+            </div>
+            <div className="cont_reklam_block">
+                <div className="advertising_container">
+                    
+                </div>
+                <div className="advertising_second">
+                    
+                </div>
             </div>
         </div>
         </>

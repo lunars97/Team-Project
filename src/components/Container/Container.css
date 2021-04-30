@@ -10,11 +10,10 @@
     
 }
 .cards_container{
-    width: 720px;
+    width: 740px;
     padding: 5px;
     border: 1px solid red;
-   
-
+    max-height: 750px;
     display: flex;
     flex-wrap: wrap;   
 }
@@ -24,11 +23,14 @@
     
     padding: 5px;
     width: 170px;
-    min-height: 340px;
-    text-decoration: none !important;
-    margin-bottom: 10px;
     
+    text-decoration: none !important;
+    margin-bottom: 10px;   
  
+}
+.links{
+ 
+    max-height: 349px;
 }
 .car_card:hover{
   
@@ -68,6 +70,7 @@
 
 Link{
     text-decoration: none !important;
+    
 }
 .card_icons{
     margin: 10px 0 0 5px;
@@ -119,4 +122,28 @@ Link{
 .inner-time{
     text-align:right;
     float:right;
+}
+
+.cont_reklam_block{
+    width: 200px;
+    height: 1000px;
+}
+
+.advertising_container{
+    background: url('http://d2.files.namba.kg/files/186689782') no-repeat;
+    width: 199px;
+    border: 1px solid red;
+    margin-left: 10px;
+    height: 380px;
+    margin: 0px 0 10px 10px;
+}
+
+.advertising_second{
+    background: url('https://www.mashina.kg/bundles/client/default/img/banners/right-bazar-mar18.jpg') no-repeat;
+    width: 199px;
+    border: 1px solid red;
+    margin-left: 10px;
+    height: 380px;
+    background-size: 100%;
+
 }

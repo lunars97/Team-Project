@@ -76,7 +76,7 @@ const AddCard = () => {
             <div className="main_inp-container">
                 <div className="inp-container">
                     <form className="form-container" onSubmit={handleClick}>
-                        <h2 style={{ color: item.ca }}>Добавить объявление</h2>
+                        <h2>Добавить объявление</h2>
                         <p>
                             <input
                                 className="inp-add"

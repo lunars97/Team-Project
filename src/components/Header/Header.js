@@ -29,6 +29,10 @@ const Header = () => {
             <div className="reklama">
                Рекламадателям
             </div>
+            
+        </div>
+        <div className="reklam_block">
+            <div className="advertising"></div>
         </div>
         </>
     );
