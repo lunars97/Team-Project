@@ -13,7 +13,7 @@ import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import { authContext } from "../../contexts/AuthContext/AuthContext";
-
+import "../SignIn/SignIn.css";
 function Copyright() {
     return (
         <Typography variant="body2" color="textSecondary" align="center">
@@ -30,19 +30,10 @@ function Copyright() {
 const useStyles = makeStyles((theme) => ({
     root: {
         height: "500px",
-        marginLeft: "450px",
-        marginTop: "20px",
+        // marginLeft: "450px",
+        // marginTop: "20px",
     },
-    // image: {
-    //     backgroundImage: "url(https://source.unsplash.com/random)",
-    //     backgroundRepeat: "no-repeat",
-    //     backgroundColor:
-    //         theme.palette.type === "light"
-    //             ? theme.palette.grey[50]
-    //             : theme.palette.grey[900],
-    //     backgroundSize: "cover",
-    //     backgroundPosition: "center",
-    // },
+
     paper: {
         margin: theme.spacing(4, 4),
         display: "flex",

@@ -13,6 +13,7 @@ import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import { authContext } from "../../contexts/AuthContext/AuthContext";
+import "../SignUp/SignUp.css";
 
 function Copyright() {
     return (
@@ -30,8 +31,6 @@ function Copyright() {
 const useStyles = makeStyles((theme) => ({
     root: {
         height: "500px",
-        marginLeft: "450px",
-        marginTop: "20px",
     },
 
     paper: {
