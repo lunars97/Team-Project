@@ -19,7 +19,7 @@ function Copyright() {
         <Typography variant="body2" color="textSecondary" align="center">
             {"Copyright © "}
             <Link color="inherit" href="https://material-ui.com/">
-                Your Website
+                mashina.kg
             </Link>{" "}
             {new Date().getFullYear()}
             {"."}
@@ -29,7 +29,9 @@ function Copyright() {
 
 const useStyles = makeStyles((theme) => ({
     root: {
-        height: "100vh",
+        height: "500px",
+        marginLeft: "450px",
+        marginTop: "20px",
     },
     // image: {
     //     backgroundImage: "url(https://source.unsplash.com/random)",
@@ -42,14 +44,14 @@ const useStyles = makeStyles((theme) => ({
     //     backgroundPosition: "center",
     // },
     paper: {
-        margin: theme.spacing(8, 4),
+        margin: theme.spacing(4, 4),
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
     },
     avatar: {
         margin: theme.spacing(1),
-        backgroundColor: theme.palette.secondary.main,
+        backgroundColor: theme.palette.primary.main,
     },
     form: {
         width: "100%", // Fix IE 11 issue.
@@ -134,7 +136,7 @@ export default function SignInSide(props) {
                                 </Link>
                             </Grid>
                             <Grid item>
-                                <Link href="#" variant="body2">
+                                <Link href="/signup" variant="body2">
                                     {"Нет аккаунта? Зарегистрируйтесь"}
                                 </Link>
                             </Grid>

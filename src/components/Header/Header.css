@@ -1,6 +1,6 @@
 header{
     width: 1020px;
-    height:50px;
+    height:45px;
     background-color: #008ac9;
     margin:0 auto;
     padding: 5px;
@@ -54,7 +54,7 @@ header{
 .under_header{
     width: 1020px;
     height:25px;
-    
+    background-color: white;
     margin: 0 auto;
     padding: 5px;
     display: flex;
@@ -86,3 +86,55 @@ header{
     border: 1px solid red;
     background: url('https://www.mashina.kg/bundles/client/default/img/banners/avangard-top-26-apr.gif') no-repeat;
 }
+
+.top_header{
+    width: 1020px;
+    height: 40px;
+    border: 1px solid red;
+    padding: 5px;
+    margin:0 auto;
+    display: flex;
+    flex-wrap:nowrap;
+    justify-content: flex-end;
+    background-color: white;
+    
+
+  
+}
+.registration_block{
+    font-size: 14px;;
+    
+    width:170px;
+    line-height: 45px;
+    margin-right: 20px;
+    text-decoration: underline;
+    background: url('https://www.mashina.kg/bundles/client/default/img/no-avatar.svg') no-repeat;
+    background-position-x: 2px;
+    background-position-y: 5px;
+    text-align:right;
+}
+
+.add_btn{
+    background: #337ab7;
+    color: #fff;
+    border-radius: 25px;
+    padding: 0 19px 0 14px;
+    height: 30px;
+    line-height: 30px;
+    margin: 10px 20px 0 0;
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+}
+.add_btn:before{
+    content: "\271A";
+}
+
+
+.main_top_reklam{
+    margin:0 auto;
+    width:1030px;
+    height:199px;
+    background: url('https://www.mashina.kg/bundles/client/default/img/banners/bradning-top-sf-building.jpg') no-repeat;
+    background-size: 1030px;
+    }

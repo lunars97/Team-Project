@@ -4,16 +4,16 @@ import "./../CardDetails/CardDetails.css";
 const CardDetails = (props) => {
     const { getCardDetails, cardDetails } = useContext(productContext);
 
-    const [editStatus, setEditStatus] = useState(false);
-    const [editedCard, setEditedCard] = useState();
+    // const [editStatus, setEditStatus] = useState(false);
+    // const [editedCard, setEditedCard] = useState();
 
-    const handleValue = (e) => {
-        let newCard = {
-            ...editedCard,
-            [e.target.name]: e.target.value,
-        };
-        setEditedCard(newCard);
-    };
+    // const handleValue = (e) => {
+    //     let newCard = {
+    //         ...editedCard,
+    //         [e.target.name]: e.target.value,
+    //     };
+    //     setEditedCard(newCard);
+    // };
     // const handleSave = () => {
     //     saveCard(props.match.params.id, editedCard);
     //     setEditedCard(false);

@@ -1,11 +1,11 @@
 .main_inp-container {
     display: flex;
     width: 100%;
-    justify-content: center;
+    justify-content: space-between;
     flex-direction: column;
     align-items: center;
-    height: 800px;
-    margin-top: 10px;
+    height: 100vh;
+    /* margin-top: 10px; */
 }
 .inp-container {
     padding-top: 10px;
