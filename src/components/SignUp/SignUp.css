@@ -1,0 +1,9 @@
+@media (min-width: 960px) {
+    .MuiGrid-grid-md-5 {
+        flex-grow: 0;
+        max-width: 41.666667%;
+        flex-basis: 41.666667%;
+        margin: 0 auto !important;
+        margin-top: 20px !important;
+    }
+}
