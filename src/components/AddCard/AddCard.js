@@ -1,82 +1,97 @@
+import { CodeSharp } from "@material-ui/icons";
 import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { productContext } from "../../contexts/ProductContext/ProductContext";
 import "../AddCard/AddCard.css";
 const AddCard = () => {
-    // const [card, setCard] = useState({
-    //     img: "",
-    //     brand: "",
-    //     dateOfRelease: "",
-    //     engine: "",
-    //     gearBox: "",
-    //     condition: "",
-    //     description: "",
-    //     name: "",
-    //     telephone: "",
-    // });
     const [img, setImg] = useState("");
     const [brand, setBrand] = useState("");
     const [dateOfRelease, setDateOfRelease] = useState("");
     const [engine, setEngine] = useState("");
+    const [wheel, setWheel] = useState("");
     const [gearBox, setGearBox] = useState("");
+    const [drive, setDrive] = useState("");
+    const [carColor, setCarColor] = useState("");
+    const [exchange, setExchange] = useState("");
+    const [isAvailable, setIsAvailable] = useState("");
+    const [bodyWork, setBodyWork] = useState("");
+    const [model, setModel] = useState("");
     const [condition, setCondition] = useState("");
+    const [fuel, setFuel] = useState("");
     const [price, setPrice] = useState("");
+    const [priceSom, setPriceSom] = useState("");
     const [description, setDescription] = useState("");
     const { postNewCard } = useContext(productContext);
 
-    // const handleValues = (e) => {
-    //     let newCard = {
-    //         ...card,
-    //         [e.target.img]: e.target.value,
-    //         [e.target.brand]: e.target.value,
-    //     };
-    //     setCard(newCard);
-    //     // console.log(e.target.value);
-    // };
+    function convert(e){
+        setPrice(e)
+        let som = Math.floor(e * 84.90)
+        som = som.toString().replace(/(\d)(?=(\d{3})+$)/g, '$1 ');
+        setPriceSom(som)
+    }
 
-    // const handleClick = () => {
-    //     postNewCard(card);
-    //     setCard({
-    //         img: "",
-    //         brand: "",
-    //         dateOfRelease: "",
-    //         engine: "",
-    //         gearBox: "",
-    //         condition: "",
-    //         description: "",
-    //         name: "",
-    //         telephone: "",
-    //     });
-    // };
+    function dollChange(){
+        let dollar = price
+        dollar = dollar.toString().replace(/(\d)(?=(\d{3})+$)/g, '$1 ');
+        setPrice(dollar)
+    
+    }
+
+    function handleColor(e){
+        setCarColor(e)
+        
+    }
+
     function handleClick(e) {
         e.preventDefault();
+
+     
+
         let newObj = {
             img: img,
             brand: brand,
             dateOfRelease: dateOfRelease,
             engine: engine,
+            wheel: wheel,
             gearBox: gearBox,
+            drive: drive,
+            color: carColor,
+            bodyWork: bodyWork,
+            isAvailable: isAvailable,
+            model: model,
             condition: condition,
             price: price,
+            priceSom: priceSom,
+            exchange: exchange,
             description: description,
+            date: Date.now()
         };
-        console.table(newObj);
         postNewCard(newObj);
         setImg("");
+        setExchange("");
         setBrand("");
         setDateOfRelease("");
+        setCarColor("");
+        setModel("");
+        setFuel("");
         setEngine("");
+        setWheel("");
+        setBodyWork("");
+        setDrive("");
         setGearBox("");
         setCondition("");
         setDescription("");
         setPrice("");
+        setIsAvailable("");
     }
+
     return (
         <>
             <div className="main_inp-container">
                 <div className="inp-container">
                     <form className="form-container" onSubmit={handleClick}>
-                        <h2>Добавить объявление</h2>
+                        {/* <h2 style={{ color: item.carColor }}> */}
+                        <h2 className="form-container">Добавить объявление</h2>
                         <p>
                             <input
                                 className="inp-add"
@@ -114,12 +129,67 @@ const AddCard = () => {
                         <p>
                             <input
                                 className="inp-add"
+                                name="model"
+                                value={model}
+                                type="text"
+                                placeholder="Модель"
+                                // onChange={handleValues}
+                                onChange={(e) => setModel(e.target.value)}
+                            />
+                        </p>
+                        <p>
+                            <input
+                                className="inp-add"
+                                name="fuel"
+                                value={fuel}
+                                type="text"
+                                placeholder="Топливо"
+                                // onChange={handleValues}
+                                onChange={(e) => setFuel(e.target.value)}
+                            />
+                        </p>
+                        <p>
+                            <input
+                                className="inp-add"
+                                name="bodyWork"
+                                value={bodyWork}
+                                type="text"
+                                placeholder="Кузов"
+                                // onChange={handleValues}
+                                onChange={(e) => setBodyWork(e.target.value)}
+                            />
+                        </p>
+                        <p>
+                            <input
+                                className="inp-add"
+                                name="drive"
+                                value={drive}
+                                type="text"
+                                placeholder="Привод"
+                                // onChange={handleValues}
+                                onChange={(e) => setDrive(e.target.value)}
+                            />
+                        </p>
+                        <p>
+                            <input
+                                className="inp-add"
                                 name="engine"
                                 value={engine}
                                 type="text"
                                 placeholder="Двигатель"
                                 // onChange={handleValues}
                                 onChange={(e) => setEngine(e.target.value)}
+                            />
+                        </p>
+                        <p>
+                            <input
+                                className="inp-add"
+                                name="wheel"
+                                value={wheel}
+                                type="text"
+                                placeholder="Руль"
+                                // onChange={handleValues}
+                                onChange={(e) => setWheel(e.target.value)}
                             />
                         </p>
                         <p>
@@ -133,6 +203,17 @@ const AddCard = () => {
                                 onChange={(e) => setGearBox(e.target.value)}
                             />
                         </p>
+                        <label for="cars">Цвет машины:</label>
+                        <select
+                            id="cars"
+                            onChange={(e) => handleColor(e.target.value)}
+                        >
+                            <option value="white">белый</option>
+                            <option value="black" selected>
+                                черный
+                            </option>
+                            <option value="silver">серебристый</option>
+                        </select>
                         <p>
                             <input
                                 className="inp-add"
@@ -147,12 +228,35 @@ const AddCard = () => {
                         <p>
                             <input
                                 className="inp-add"
+                                name="isAvailable"
+                                value={isAvailable}
+                                type="text"
+                                placeholder="Наличие"
+                                // onChange={handleValues}
+                                onChange={(e) => setIsAvailable(e.target.value)}
+                            />
+                        </p>
+                        <p>
+                            <input
+                                className="inp-add"
+                                name="exchange"
+                                value={exchange}
+                                type="text"
+                                placeholder="Обмен"
+                                // onChange={handleValues}
+                                onChange={(e) => setExchange(e.target.value)}
+                            />
+                        </p>
+                        <p>
+                            <input
+                                className="inp-add"
                                 name="telephone"
                                 value={price}
                                 type="number"
-                                placeholder="Цена"
+                                placeholder="Цена в &#36;"
+                                min="1"
                                 // onChange={handleValues}
-                                onChange={(e) => setPrice(e.target.value)}
+                                onChange={(e) => convert(e.target.value)}
                             />
                         </p>
                         <p>
@@ -166,10 +270,10 @@ const AddCard = () => {
                                 onChange={(e) => setDescription(e.target.value)}
                             />
                         </p>
-                        <button className="inpBtn">Добавить</button>
+                        <button onClick={() => dollChange()} className="inpBtn">Добавить</button>
                     </form>
-                    <Link to="/list">
-                        <button className="main-btn">На главную</button>
+                    <Link to="/">
+                        <button  className="main-btn">На главную</button>
                     </Link>
                 </div>
             </div>

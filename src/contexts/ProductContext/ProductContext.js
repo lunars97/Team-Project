@@ -38,7 +38,7 @@ const ProductContextProvider = ({ children }) => {
             `http://localhost:8000/cars?_page=${page}&_limit=4`
         );
         let num = Math.ceil(res.headers["x-total-count"] / 4);
-        console.log(res.data);
+      
         dispatch({
             type: "GET_CARDS",
             payload: res.data,

@@ -8,7 +8,7 @@ const Home = () => {
     return (
         <>
         <Header/>
-       
+        
         <Container/>
         </>
     );
