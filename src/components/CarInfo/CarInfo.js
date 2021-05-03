@@ -1,9 +1,16 @@
 import React from 'react';
 import './CarInfo.css';
+import Header from '../Header/Header';
+
 
 
 const CarInfo = () => {
+
+
+
     return (
+        <>
+           <Header/>
         <div className="main_container_car">
             <div className="carinfo-container">
                 <div className="sell_name">
@@ -70,6 +77,7 @@ const CarInfo = () => {
                 </div>
             </div>
         </div>
+        </>
     );
 };
 

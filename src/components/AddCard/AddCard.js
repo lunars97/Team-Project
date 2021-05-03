@@ -22,6 +22,7 @@ const AddCard = () => {
     const [priceSom, setPriceSom] = useState("");
     const [description, setDescription] = useState("");
     const { postNewCard } = useContext(productContext);
+    const [km, setKm] = useState("");
 
     function convert(e){
         setPrice(e)
@@ -34,6 +35,7 @@ const AddCard = () => {
         let dollar = price
         dollar = dollar.toString().replace(/(\d)(?=(\d{3})+$)/g, '$1 ');
         setPrice(dollar)
+        
     
     }
 
@@ -64,7 +66,11 @@ const AddCard = () => {
             priceSom: priceSom,
             exchange: exchange,
             description: description,
-            date: Date.now()
+            date: Date.now(),
+            fuel: fuel,
+            km: km,
+            views: 1
+            
         };
         postNewCard(newObj);
         setImg("");
@@ -83,6 +89,8 @@ const AddCard = () => {
         setDescription("");
         setPrice("");
         setIsAvailable("");
+        setKm("");
+
     }
 
     return (
@@ -203,6 +211,22 @@ const AddCard = () => {
                                 onChange={(e) => setGearBox(e.target.value)}
                             />
                         </p>
+
+
+                        <p>
+                            <input
+                                className="inp-add"
+                                name="km"
+                                value={km}
+                                type="text"
+                                placeholder="Пробег"
+                                
+                                onChange={(e) => setKm(e.target.value)}
+                            />
+                        </p>
+
+
+
                         <label for="cars">Цвет машины:</label>
                         <select
                             id="cars"
@@ -270,7 +294,7 @@ const AddCard = () => {
                                 onChange={(e) => setDescription(e.target.value)}
                             />
                         </p>
-                        <button onClick={() => dollChange()} className="inpBtn">Добавить</button>
+                       <button onClick={() => dollChange()} className="inpBtn">Добавить</button>
                     </form>
                     <Link to="/">
                         <button  className="main-btn">На главную</button>

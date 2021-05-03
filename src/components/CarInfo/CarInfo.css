@@ -78,8 +78,11 @@
     height:300px;
     
     margin: 7px 0 0 5px;
-    background: url('https://im.mashina.kg/tachka/images//b/c/f/bcf74f149b882c9524addec53a2ef402_640x480.jpg') no-repeat;
+   
     background-size: 100%;
+}
+.car_image_card img{
+    width: 410px;
 }
 
 .car_description{

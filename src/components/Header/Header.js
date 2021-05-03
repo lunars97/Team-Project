@@ -15,13 +15,13 @@ const Header = () => {
             <div className="registration_block">
                 Вход / Авторизация
             </div>
-            <Link className="add_btn" to="/"> Добавить объявление</Link>
+            <Link className="add_btn" to="/add"> Добавить объявление</Link>
         </div>
         <header>
-           <Link to="/home" className="header_icon_link"/>
+           <Link to="/" className="header_icon_link"/>
             <div class="nav_links">
-           <Link to="/home" className="car_link">Легковые </Link>
-           <Link to="/home" className="car_link">Грузовые </Link>
+           <Link to="/" className="car_link">Легковые </Link>
+           <Link to="/" className="car_link">Грузовые </Link>
            <input placeholder="...пример: honda accord" className="search_input" type="text"></input>
             <button className="search_btn">Поиск</button>
            </div>

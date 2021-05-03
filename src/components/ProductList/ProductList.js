@@ -4,16 +4,17 @@ import ProductCard from "../ProductCard/ProductCard";
 import "./../ProductList/ProductList.css";
 
 const ProductList = () => {
-    const { getCards, productsData, allPages, setPage } = useContext(
-        productContext
-    );
+    const { getCards, productsData, allPages, setPage } = useContext(productContext);
+
+
+    
 
     const arr = [];
     for (let i = 1; i <= allPages; i++) {
         arr.push(i);
-        console.log(arr);
+        
     }
-    console.log(arr);
+   
     useEffect(() => {
         getCards();
     }, []);

@@ -33,6 +33,8 @@ const ProductContextProvider = ({ children }) => {
         getCards();
     }, [page]);
 
+    
+
     async function getCards() {
         let res = await axios.get(
             `http://localhost:8000/cars?_page=${page}&_limit=4`
@@ -50,6 +52,7 @@ const ProductContextProvider = ({ children }) => {
         await axios.post("http://localhost:8000/cars", card);
         getCards();
     };
+    
     async function getCardDetails(id) {
         let { data } = await axios.get(`http://localhost:8000/cars/${id}`);
         dispatch({
@@ -57,9 +60,7 @@ const ProductContextProvider = ({ children }) => {
             payload: data,
         });
     }
-    // async function leaveComment() {
-    //     let { data };
-    // }
+   
     async function saveCard(id, newCard) {
         await axios.patch(`http://localhost:8000/cars/${id}`, newCard);
         getCardDetails(id);
