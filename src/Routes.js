@@ -1,30 +1,48 @@
-import React from "react";
+import React, { useEffect, useContext } from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import Home from "./components/Home/Home";
-import Container from "./components/Container/Container";
 import Header from "./components/Header/Header";
 import AddCard from "./components/AddCard/AddCard";
-import ProductList from "./components/ProductList/ProductList";
 import ProductContextProvider from "./contexts/ProductContext/ProductContext";
 import CardDetails from "./components/CardDetails/CardDetails";
-import CarInfo from "./components/CarInfo/CarInfo";
+import ProductList from "./components/ProductList/ProductList";
+import ProductCard from "./components/ProductCard/ProductCard";
+import SignIn from "./components/SignIn/SignIn";
+import SignUp from "./components/SignUp/SignUp";
+import AuthContextProvider, {
+    authContext,
+} from "./contexts/AuthContext/AuthContext";
+import PaymentCard from "./components/PaymentCard/PaymentCard";
 
 const Routes = () => {
+    const { checkAuth } = useContext(authContext);
+    useEffect(() => {
+        const token = localStorage.getItem("token");
+
+        if (token) {
+            checkAuth(token);
+        }
+    }, []);
     return (
-        <ProductContextProvider>
-            <BrowserRouter>
-                <Switch>
-                    <Route exact path="/" component={Home} />
-                    <Route exact path="/container" component={Container} />
-                    <Route exact path="/header" component={Header} />
-                    <Route exact path="/add" component={AddCard} />
-                    <Route exact path="/list" component={ProductList} />
-                    <Route exact path="/details/:id" component={CardDetails} />
-                    <Route exact path="/carinfo" component={CarInfo} />
-                </Switch>
-            </BrowserRouter>
-        </ProductContextProvider>
+        <AuthContextProvider>
+            <ProductContextProvider>
+                <BrowserRouter>
+                    <Header />
+                    <Switch>
+                        <Route exact path="/" component={ProductList} />
+                        <Route exact path="/add" component={AddCard} />
+                        <Route
+                            exact
+                            path="/details/:id"
+                            component={CardDetails}
+                        />
+                        <Route exact path="/" component={ProductCard} />
+                        <Route exact path="/login" component={SignIn} />
+                        <Route exact path="/signup" component={SignUp} />
+                        <Route exact path="/payment" component={PaymentCard} />
+                    </Switch>
+                </BrowserRouter>
+            </ProductContextProvider>
+        </AuthContextProvider>
     );
 };
-
 export default Routes;

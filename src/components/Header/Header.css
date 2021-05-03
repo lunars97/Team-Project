@@ -1,59 +1,56 @@
-header{
+header {
     width: 1020px;
-    height:45px;
+    height: 45px;
     background-color: #008ac9;
-    margin:0 auto;
+    margin: 0 auto;
     padding: 5px;
-    display:flex;
-    flex-wrap:nowrap;
+    display: flex;
+    flex-wrap: nowrap;
     align-items: center;
     justify-content: space-around;
 }
-.header_icon_link{
-    background: url("https://www.mashina.kg/bundles/client/default/img/mashinka-name-header.svg") no-repeat left center;
+.header_icon_link {
+    background: url("https://www.mashina.kg/bundles/client/default/img/mashinka-name-header.svg")
+        no-repeat left center;
     background-size: 160px;
-  width: 175px;
-  height: 32px;
-  color: #fff;
-  padding: 0 25px 0 55px;
-  display: inline-block;
-  margin: 5px 0 -5px;
+    width: 175px;
+    height: 32px;
+    color: #fff;
+    padding: 0 25px 0 55px;
+    display: inline-block;
+    margin: 5px 0 -5px;
 }
 
-
-.nav_links{
- 
+.nav_links {
     width: 600px;
     text-align: center;
 }
-.car_link{
+.car_link {
     margin-left: 10px;
     color: white;
     font-weight: bold;
     text-decoration: none;
 }
 
-.search_input{
+.search_input {
     height: 27px;
     width: 200px;
     border-radius: 4px;
     border: 1px dotted white;
     margin-left: 50px;
-
 }
 
-.search_btn{
+.search_btn {
     width: 55px;
     margin-left: 20px;
-    height:29px;
+    height: 29px;
     background-color: #008ac9;
     border: 1px dotted black;
 }
 
-
-.under_header{
+.under_header {
     width: 1020px;
-    height:25px;
+    height: 25px;
     background-color: white;
     margin: 0 auto;
     padding: 5px;
@@ -62,59 +59,57 @@ header{
     box-shadow: 0 0 5px 1px #ccc;
     justify-content: space-between;
 }
-.under_links{
+.under_links {
     width: 400px;
-  
 }
 
-.reklama{
+.reklama {
     width: 150px;
-    
+
     font-weight: bold;
-    color:#008ac9;
+    color: #008ac9;
 }
 
-.reklam_block{
+.reklam_block {
     width: 1030px;
     border: 1px solid green;
-    margin:0 auto;
+    margin: 0 auto;
 }
-.advertising{
+.advertising {
     width: 727px;
     height: 90px;
- 
+
     border: 1px solid red;
-    background: url('https://www.mashina.kg/bundles/client/default/img/banners/avangard-top-26-apr.gif') no-repeat;
+    background: url("https://www.mashina.kg/bundles/client/default/img/banners/avangard-top-26-apr.gif")
+        no-repeat;
 }
 
-.top_header{
+.top_header {
     width: 1020px;
     height: 40px;
     border: 1px solid red;
     padding: 5px;
-    margin:0 auto;
+    margin: 0 auto;
     display: flex;
-    flex-wrap:nowrap;
+    flex-wrap: nowrap;
     justify-content: flex-end;
     background-color: white;
-    
-
-  
 }
-.registration_block{
-    font-size: 14px;;
-    
-    width:170px;
+.registration_block {
+    font-size: 14px;
+
+    width: 170px;
     line-height: 45px;
     margin-right: 20px;
     text-decoration: underline;
-    background: url('https://www.mashina.kg/bundles/client/default/img/no-avatar.svg') no-repeat;
+    background: url("https://www.mashina.kg/bundles/client/default/img/no-avatar.svg")
+        no-repeat;
     background-position-x: 2px;
     background-position-y: 5px;
-    text-align:right;
+    text-align: right;
 }
 
-.add_btn{
+.add_btn {
     background: #337ab7;
     color: #fff;
     border-radius: 25px;
@@ -126,15 +121,15 @@ header{
     font-size: 14px;
     font-weight: bold;
 }
-.add_btn:before{
+.add_btn:before {
     content: "\271A";
 }
 
-
-.main_top_reklam{
-    margin:0 auto;
-    width:1030px;
-    height:199px;
-    background: url('https://www.mashina.kg/bundles/client/default/img/banners/bradning-top-sf-building.jpg') no-repeat;
+.main_top_reklam {
+    margin: 0 auto;
+    width: 1030px;
+    height: 199px;
+    background: url("https://www.mashina.kg/bundles/client/default/img/banners/bradning-top-sf-building.jpg")
+        no-repeat;
     background-size: 1030px;
-    }
+}

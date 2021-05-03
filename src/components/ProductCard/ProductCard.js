@@ -69,6 +69,7 @@ const ProductCard = (props) => {
 
    
     return (
+<<<<<<< HEAD
         <Link onClick={() => Views()} to={`/details/${props.id}`}>
             <div className="car_card">
                 <img className="card_image" src={props.item.img} alt="auto-img" />
@@ -86,17 +87,49 @@ const ProductCard = (props) => {
                         <span>{props.item.engine} </span>
                         <span>{props.item.gearBox} </span>
                         <span className="color-icon"
+=======
+        <Link to={`/details/${props.id}`}>
+            <div className="car_card">
+                <img
+                    className="card_image"
+                    src={props.item.img}
+                    alt="auto-img"
+                />
+                <div className="car_name">{props.item.brand}</div>
+                <p className="price">
+                    <div className="views_icon">
+                        <div className="coll">115</div>
+                    </div>
+                    <div className="money1 money">{props.item.price} &#36;</div>
+                    <div className="money2 money">411 280 сом </div>
+                </p>
+                <div className="info_wrapper">
+                    <div className="year_miles">
+                        <span>{props.item.dateOfRelease}</span>
+                        <span>{props.item.engine}</span>
+                        <span>{props.item.gearBox}</span>
+                        <span
+>>>>>>> 4fd32bae44f0b69e58427cf79d143e7d8e37b665
                             style={{ backgroundColor: props.item.color }}
                             title="черный"
                         ></span>
                     </div>
                     <div className="body_type">
+<<<<<<< HEAD
                         <span>{props.item.bodyWork}, </span>
                         <span>{props.item.fuel} </span>
                     </div>
                     <div className="volume">
                         <span>{props.item.wheel}, </span>
                         <span>{props.item.km} км </span>
+=======
+                        <span>{props.item.bodyWork}</span>
+                        <span>{props.item.fuel}</span>
+                    </div>
+                    <div className="volume">
+                        <span>{props.item.fuel}</span>
+                        <span>{props.item.engine}</span>
+>>>>>>> 4fd32bae44f0b69e58427cf79d143e7d8e37b665
                     </div>
 
                     <div className="card_icons">
@@ -107,7 +140,11 @@ const ProductCard = (props) => {
                     </div>
                     <div className="city_name">
                         Бишкек
+<<<<<<< HEAD
                         <span className="inner-time">{checktime()}</span>
+=======
+                        <span className="inner-time">11 мин</span>
+>>>>>>> 4fd32bae44f0b69e58427cf79d143e7d8e37b665
                     </div>
                 </div>
             </div>

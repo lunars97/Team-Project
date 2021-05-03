@@ -27,7 +27,8 @@ const reducer = (state = INIT_STATE, action) => {
 const ProductContextProvider = ({ children }) => {
     const [state, dispatch] = useReducer(reducer, INIT_STATE);
     const [page, setPage] = useState(1);
-    const [modal, setModal] = useState(false);
+
+    // const [modal, setModal] = useState(false);
 
     useEffect(() => {
         getCards();
@@ -40,7 +41,11 @@ const ProductContextProvider = ({ children }) => {
             `http://localhost:8000/cars?_page=${page}&_limit=4`
         );
         let num = Math.ceil(res.headers["x-total-count"] / 4);
+<<<<<<< HEAD
       
+=======
+        // console.log(res.data);
+>>>>>>> 4fd32bae44f0b69e58427cf79d143e7d8e37b665
         dispatch({
             type: "GET_CARDS",
             payload: res.data,
@@ -65,9 +70,9 @@ const ProductContextProvider = ({ children }) => {
         await axios.patch(`http://localhost:8000/cars/${id}`, newCard);
         getCardDetails(id);
     }
-    function handleCloseModal() {
-        setModal(false);
-    }
+    // function handleCloseModal() {
+    //     setModal(false);
+    // }
     return (
         <productContext.Provider
             value={{
@@ -79,7 +84,6 @@ const ProductContextProvider = ({ children }) => {
                 getCardDetails,
                 setPage,
                 saveCard,
-                handleCloseModal,
             }}
         >
             {children}

@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { productContext } from "../../contexts/ProductContext/ProductContext";
 import "./../CardDetails/CardDetails.css";
+<<<<<<< HEAD
 import Header from '../Header/Header';
 import { Link } from "react-router-dom";
 import axios from "axios";
@@ -12,6 +13,25 @@ async function deleteCar(id) {
 
 
 
+=======
+const CardDetails = (props) => {
+    const { getCardDetails, cardDetails } = useContext(productContext);
+
+    // const [editStatus, setEditStatus] = useState(false);
+    // const [editedCard, setEditedCard] = useState();
+
+    // const handleValue = (e) => {
+    //     let newCard = {
+    //         ...editedCard,
+    //         [e.target.name]: e.target.value,
+    //     };
+    //     setEditedCard(newCard);
+    // };
+    // const handleSave = () => {
+    //     saveCard(props.match.params.id, editedCard);
+    //     setEditedCard(false);
+    // };
+>>>>>>> 4fd32bae44f0b69e58427cf79d143e7d8e37b665
 
 const CardDetails = (props) => {
     const { getCardDetails, cardDetails } = useContext(productContext);
@@ -19,6 +39,13 @@ const CardDetails = (props) => {
     
 
 
+<<<<<<< HEAD
+=======
+    // const handleSave = () => {
+    //     getCardDetails(props.match.params.id, editedCard);
+    //     setModal(true);
+    // };
+>>>>>>> 4fd32bae44f0b69e58427cf79d143e7d8e37b665
 
     useEffect(() => {
         getCardDetails(props.match.params.id);
@@ -28,6 +55,7 @@ const CardDetails = (props) => {
     return (
         <div>
             {cardDetails ? (
+<<<<<<< HEAD
 <>
     <Header/>
 <div className="main_container_car">
@@ -101,6 +129,23 @@ const CardDetails = (props) => {
 
 </>
       
+=======
+                <div className="main-wrapper">
+                    <img
+                        className="details-img"
+                        src={cardDetails.img}
+                        alt="car"
+                    />
+                    <p className="detailed-info">{cardDetails.brand}</p>
+                    <p className="detailed-info">{cardDetails.dateOfRelease}</p>
+                    <p className="detailed-info">{cardDetails.engine}</p>
+                    <p className="detailed-info">{cardDetails.gearBox}</p>
+                    <p className="detailed-info">{cardDetails.condition}</p>
+                    <p className="detailed-info">{cardDetails.price}</p>
+                    <span style={{ backgroundColor: cardDetails.color }}></span>
+                    <p className="detailed-info">{cardDetails.description}</p>
+                </div>
+>>>>>>> 4fd32bae44f0b69e58427cf79d143e7d8e37b665
             ) : (
                 "Details"
             )}

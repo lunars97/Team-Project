@@ -12,9 +12,15 @@ const ProductList = () => {
     const arr = [];
     for (let i = 1; i <= allPages; i++) {
         arr.push(i);
+<<<<<<< HEAD
         
     }
    
+=======
+        // console.log(arr);
+    }
+    // console.log(arr);
+>>>>>>> 4fd32bae44f0b69e58427cf79d143e7d8e37b665
     useEffect(() => {
         getCards();
     }, []);
@@ -26,6 +32,7 @@ const ProductList = () => {
                 ))}
             </div>
 
+<<<<<<< HEAD
             <div className="cont_reklam_block">
                 <div className="advertising_container">
                     
@@ -35,6 +42,8 @@ const ProductList = () => {
                 </div>
             </div>
 
+=======
+>>>>>>> 4fd32bae44f0b69e58427cf79d143e7d8e37b665
             <div className="pagination">
                 {arr.map((page) => (
                     <button className="pageBtn" onClick={() => setPage(page)}>

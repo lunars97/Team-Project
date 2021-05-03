@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "cars": [
     {
       "img": "https://im.mashina.kg/tachka/images//e/b/1/eb1b98f44c3d1f82d7bedda76ce3f59d_640x480.jpg",
@@ -48,3 +49,17 @@
     }
   ]
 }
+=======
+    "cars": [
+        {
+            "comments": [
+                {
+                    "text": "хорошая маштинка",
+                    "author": "email"
+                }
+            ],
+            "id": 2
+        }
+    ]
+}
+>>>>>>> 4fd32bae44f0b69e58427cf79d143e7d8e37b665
