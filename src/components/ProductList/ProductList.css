@@ -31,8 +31,11 @@
 }
 
 .pagination {
-    margin-top: 80px;
-    margin-bottom: 50px;
+   
     display: flex;
     justify-content: center;
+    border: 1px solid red;
+    width:100%;
+    height:50px;
+   
 }

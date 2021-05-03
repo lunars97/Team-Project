@@ -24,6 +24,15 @@ const ProductList = () => {
                 {productsData.map((item) => (
                     <ProductCard key={item.id} item={item} id={item.id} />
                 ))}
+
+            <div className="pagination">
+                {arr.map((page) => (
+                    <button className="pageBtn" onClick={() => setPage(page)}>
+                        {page}
+                    </button>
+                ))}
+            </div>
+
             </div>
 
             <div className="cont_reklam_block">
@@ -35,13 +44,7 @@ const ProductList = () => {
                 </div>
             </div>
 
-            <div className="pagination">
-                {arr.map((page) => (
-                    <button className="pageBtn" onClick={() => setPage(page)}>
-                        {page}
-                    </button>
-                ))}
-            </div>
+           
         </div>
     );
 };
