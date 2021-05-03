@@ -38,10 +38,15 @@ const ProductContextProvider = ({ children }) => {
 
     async function getCards() {
         let res = await axios.get(
-            `http://localhost:8000/cars?_page=${page}&_limit=4`
+            `http://localhost:8000/cars?_page=${page}&_limit=8`
         );
+<<<<<<< HEAD
         let num = Math.ceil(res.headers["x-total-count"] / 4);
         // console.log(res.data);
+=======
+        let num = Math.ceil(res.headers["x-total-count"] / 8);
+      
+>>>>>>> b3cdac3d6ce195b2aef4d300c9f5a8f4a1e9e39b
         dispatch({
             type: "GET_CARDS",
             payload: res.data,
