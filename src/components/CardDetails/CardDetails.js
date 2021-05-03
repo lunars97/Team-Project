@@ -13,21 +13,11 @@ async function deleteCar(id) {
 
 
 
-<<<<<<< HEAD
-    // const addComment = (comment) => {
-    //     let {data: {comments}} = axios('url' + id)
-
-    //     comments.push(comment)
-
-    //     axios.patch('url' + id, comments)
-    // }
-=======
 const CardDetails = (props) => {
     const { getCardDetails, cardDetails } = useContext(productContext);
 
     
 
->>>>>>> b8eb4d8002d77bc3b55e480fbf998b44050fecfe
 
 
     useEffect(() => {
