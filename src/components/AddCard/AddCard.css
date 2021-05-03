@@ -7,6 +7,12 @@
     height: 100vh;
     /* margin-top: 10px; */
 }
+.form_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
 .inp-container {
     padding-top: 10px;
     width: 60%;
@@ -21,7 +27,7 @@ h2 {
     text-align: center;
 }
 .inp-add {
-    width: 300px;
+    width: 400px;
     margin-bottom: 10px;
     padding: 5px 0;
     outline: none;
@@ -29,10 +35,23 @@ h2 {
 .inpBtn {
     padding: 5px 15px;
 }
+.inpBtn:hover {
+    background-color: #008ac9;
+    outline: none;
+}
 .main-btn {
     position: relative;
     outline: none;
     padding: 3px 10px;
     float: right;
     background-color: #fff;
+    margin-right: 10px;
+    outline: none;
+}
+.main-btn:hover {
+    background-color: #008ac9;
+}
+#cars {
+    width: 150px;
+    height: 25px;
 }

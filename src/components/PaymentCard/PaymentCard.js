@@ -11,8 +11,8 @@ const PaymentCard = () => {
                     произвести оплату в размере 1&#36;
                 </span>
             </div>
-            <form className="main-form">
-                <div className="form-container">
+            <form className="main-formed">
+                <div className="form-containers">
                     <div className="personal-information">
                         <h1>Оплата за объявление</h1>
                     </div>
@@ -52,12 +52,10 @@ const PaymentCard = () => {
                         placeholder="CCV"
                     />
 
-                    <div className="card-wrapper"></div>
-
                     <input
                         id="column-left"
                         type="text"
-                        className="name-card"
+                        // className="city-card"
                         name="city"
                         required="required"
                         autoComplete="on"
@@ -67,7 +65,7 @@ const PaymentCard = () => {
                     <input
                         id="column-right"
                         type="text"
-                        className="name-card"
+                        // className="zip-card"
                         name="zipcode"
                         required="required"
                         autoComplete="on"
