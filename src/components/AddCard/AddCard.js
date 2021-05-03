@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { productContext } from "../../contexts/ProductContext/ProductContext";
 import "../AddCard/AddCard.css";
+import { Link } from 'react-router-dom';
 
 const AddCard = () => {
     const [img, setImg] = useState("");

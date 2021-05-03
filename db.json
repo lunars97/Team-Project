@@ -1,60 +1,9 @@
 {
-<<<<<<< HEAD
-  "cars": [
-    {
-      "img": "https://im.mashina.kg/tachka/images//e/b/1/eb1b98f44c3d1f82d7bedda76ce3f59d_640x480.jpg",
-      "brand": "Toyota",
-      "dateOfRelease": "2005",
-      "engine": "2.0",
-      "wheel": "Слева",
-      "gearBox": "Механика",
-      "drive": "Передний",
-      "color": "",
-      "bodyWork": "Седан",
-      "isAvailable": "asd",
-      "model": "Ipsum",
-      "condition": "Прекрасное",
-      "price": "5 400",
-      "priceSom": "458 460",
-      "exchange": "не интересует",
-      "description": "",
-      "date": 1620033200737,
-      "fuel": "Бензин",
-      "km": "145000",
-      "id": 1,
-      "views": 3
-    },
-    {
-      "img": "",
-      "brand": "",
-      "dateOfRelease": "",
-      "engine": "",
-      "wheel": "",
-      "gearBox": "",
-      "drive": "",
-      "color": "",
-      "bodyWork": "",
-      "isAvailable": "",
-      "model": "",
-      "condition": "",
-      "price": "",
-      "priceSom": "",
-      "exchange": "",
-      "description": "",
-      "date": 1620033250751,
-      "fuel": "",
-      "km": "",
-      "views": 5,
-      "id": 2
-    }
-  ]
-}
-=======
     "cars": [
         {
             "comments": [
                 {
-                    "text": "хорошая маштинка",
+                    "text": "хорошая машинка",
                     "author": "email"
                 }
             ],
@@ -62,4 +11,3 @@
         }
     ]
 }
->>>>>>> 4fd32bae44f0b69e58427cf79d143e7d8e37b665
