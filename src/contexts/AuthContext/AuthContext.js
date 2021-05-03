@@ -21,10 +21,12 @@ const AuthContextProvider = ({ children }) => {
 
     async function registerUser(e, history) {
         e.preventDefault();
+        console.log(e);
         const newUser = {
-            email: e.target[4].value,
-            password: e.target[6].value,
+            email: e.target[0].value,
+            password: e.target[2].value,
         };
+        console.log(e.target);
         try {
             const { data } = await axios.post(
                 `${AUTH_API}/api/auth/register`,
@@ -33,12 +35,13 @@ const AuthContextProvider = ({ children }) => {
             history.push("/login");
             const decoded = jwt_decode(data.access_token);
         } catch (err) {
-            console.log(err.response);
+            // console.log(err.response);
         }
     }
 
     async function loginUser(e, history) {
         e.preventDefault();
+        console.log(e);
         const user = {
             email: e.target[0].value,
             password: e.target[2].value,
@@ -48,12 +51,11 @@ const AuthContextProvider = ({ children }) => {
                 `${AUTH_API}/api/auth/login`,
                 user
             );
-            console.log(data);
+            console.table(e.target);
             history.push("/");
             const decoded = jwt_decode(data.token);
 
             localStorage.setItem("token", decoded);
-
             if (data) {
                 dispatch({
                     type: "AUTH",
@@ -65,16 +67,15 @@ const AuthContextProvider = ({ children }) => {
             console.log(err.response);
         }
     }
-    async function checkAuth(e, token) {
+    async function checkAuth(token) {
         const user = {
-            email: e.target[4].value,
-            password: e.target[6].value,
+            // email: e.target[0].value,
+            // password: e.target[2].value,
         };
 
         const { data } = await axios.post(`${AUTH_API}/api/auth/login`, user);
         token = localStorage.getItem("token");
         const decoded = jwt_decode(token);
-
         localStorage.getItem("token");
 
         if (user) {

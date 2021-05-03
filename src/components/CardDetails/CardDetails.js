@@ -51,7 +51,7 @@ const CardDetails = (props) => {
                     <p className="detailed-info">{cardDetails.gearBox}</p>
                     <p className="detailed-info">{cardDetails.condition}</p>
                     <p className="detailed-info">{cardDetails.price}</p>
-                    <span style={{ backgroundColor: props.item.color }}></span>
+                    <span style={{ backgroundColor: cardDetails.color }}></span>
                     <p className="detailed-info">{cardDetails.description}</p>
                 </div>
             ) : (

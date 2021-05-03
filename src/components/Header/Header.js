@@ -7,8 +7,11 @@ const Header = () => {
         <>
             <div className="main_top_reklam"></div>
             <div className="top_header">
-                <div className="registration_block">Вход / Авторизация</div>
-                <Link className="add_btn" to="/">
+                <div className="registration_block">
+                    <Link to="/login">Вход </Link>/
+                    <Link to="signup">Авторизация</Link>
+                </div>
+                <Link className="add_btn" to="/add">
                     {" "}
                     Добавить объявление
                 </Link>
