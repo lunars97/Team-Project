@@ -1,19 +1,9 @@
 import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
 import { productContext } from "../../contexts/ProductContext/ProductContext";
 import "../AddCard/AddCard.css";
+
 const AddCard = () => {
-    // const [card, setCard] = useState({
-    //     img: "",
-    //     brand: "",
-    //     dateOfRelease: "",
-    //     engine: "",
-    //     gearBox: "",
-    //     condition: "",
-    //     description: "",
-    //     name: "",
-    //     telephone: "",
-    // });
+    
     const [img, setImg] = useState("");
     const [brand, setBrand] = useState("");
     const [dateOfRelease, setDateOfRelease] = useState("");
@@ -24,32 +14,7 @@ const AddCard = () => {
     const [description, setDescription] = useState("");
     const { postNewCard } = useContext(productContext);
 
-    // const handleValues = (e) => {
-    //     let newCard = {
-    //         ...card,
-    //         [e.target.img]: e.target.value,
-    //         [e.target.brand]: e.target.value,
-    //     };
-    //     setCard(newCard);
-    //     // console.log(e.target.value);
-    // };
-
-    // const handleClick = () => {
-    //     postNewCard(card);
-    //     setCard({
-    //         img: "",
-    //         brand: "",
-    //         dateOfRelease: "",
-    //         engine: "",
-    //         gearBox: "",
-    //         condition: "",
-    //         description: "",
-    //         name: "",
-    //         telephone: "",
-    //     });
-    // };
-    function handleClick(e) {
-        e.preventDefault();
+    function handleClick() {
         let newObj = {
             img: img,
             brand: brand,
@@ -60,7 +25,6 @@ const AddCard = () => {
             price: price,
             description: description,
         };
-        console.table(newObj);
         postNewCard(newObj);
         setImg("");
         setBrand("");
@@ -75,8 +39,8 @@ const AddCard = () => {
         <>
             <div className="main_inp-container">
                 <div className="inp-container">
-                    <form className="form-container" onSubmit={handleClick}>
-                        <h2 style={{ color: item.ca }}>Добавить объявление</h2>
+                    <form className="form-container">
+                        <h2>Добавить объявление</h2>
                         <p>
                             <input
                                 className="inp-add"
@@ -166,11 +130,10 @@ const AddCard = () => {
                                 onChange={(e) => setDescription(e.target.value)}
                             />
                         </p>
-                        <button className="inpBtn">Добавить</button>
+                        <button className="inpBtn" onClick={handleClick}>
+                            Добавить
+                        </button>
                     </form>
-                    <Link to="/list">
-                        <button className="main-btn">На главную</button>
-                    </Link>
                 </div>
             </div>
         </>

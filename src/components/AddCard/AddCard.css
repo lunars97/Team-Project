@@ -1,18 +1,18 @@
 .main_inp-container {
     display: flex;
     width: 100%;
-    justify-content: center;
+    justify-content: space-between;
     flex-direction: column;
     align-items: center;
     height: 100vh;
-    background-color: rgb(72, 72, 233);
+    /* margin-top: 10px; */
 }
 .inp-container {
     padding-top: 10px;
     width: 60%;
     display: flex;
     justify-content: center;
-    background-color: brown;
+    background-color: #008ac9;
     padding-bottom: 20px;
     border-radius: 20px;
     box-shadow: 5px 4px 3px 2px;
@@ -34,5 +34,5 @@ h2 {
     outline: none;
     padding: 3px 10px;
     float: right;
-    background-color: brown;
+    background-color: #fff;
 }

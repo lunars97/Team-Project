@@ -1,20 +1,19 @@
 import React, { useContext, useEffect, useState } from "react";
 import { productContext } from "../../contexts/ProductContext/ProductContext";
 import "./../CardDetails/CardDetails.css";
-const CardDetails = (props) => {
-    const { getCardDetails, cardDetails, setModal } = useContext(
-        productContext
-    );
+import Header from '../Header/Header';
+import { Link } from "react-router-dom";
+import axios from "axios";
 
-    const [editedCard, setEditedCard] = useState();
+async function deleteCar(id) {
+     axios.delete(`http://localhost:8000/cars/${id}`);
+   
+}
 
-    const handleValue = (e) => {
-        let newCard = {
-            ...editedCard,
-            [e.target.name]: e.target.value,
-        };
-    };
 
+
+
+<<<<<<< HEAD
     // const addComment = (comment) => {
     //     let {data: {comments}} = axios('url' + id)
 
@@ -22,108 +21,96 @@ const CardDetails = (props) => {
 
     //     axios.patch('url' + id, comments)
     // }
+=======
+const CardDetails = (props) => {
+    const { getCardDetails, cardDetails } = useContext(productContext);
 
-    const handleSave = () => {
-        getCardDetails(props.match.params.id, editedCard);
-        setModal(true);
-    };
+    
+
+>>>>>>> b8eb4d8002d77bc3b55e480fbf998b44050fecfe
+
 
     useEffect(() => {
         getCardDetails(props.match.params.id);
     }, [props.match.params.id]);
+    
     console.log(props);
     return (
         <div>
-            <div className="dropdown" style={{ float: "right" }}>
-                <button className="dropbtn">Settings</button>
-                <div className="dropdown-content">
-                    <a href="#">Delete</a>
-                    <a href="#">Edit</a>
-                </div>
-            </div>
-            <div className="main-modal">
-                <div className="inner-modal">
-                    <button className="close-btn">✖️</button>
-                    <div className="close">
-                        <input
-                            onChange={handleValue}
-                            // value={}
-                            name="img"
-                            type="text"
-                            placeholder="Изображение"
-                            className="inpModal"
-                        />
-                        <input
-                            onChange={handleValue}
-                            name="brand"
-                            type="text"
-                            className="inpModal"
-                            placeholder="Марка"
-                        />
-                        <input
-                            onChange={handleValue}
-                            name="dateOfRelease"
-                            type="text"
-                            className="inpModal"
-                            placeholder="Год выпуска"
-                        />
-                        <input
-                            onChange={handleValue}
-                            name="engine"
-                            type="text"
-                            className="inpModal"
-                            placeholder="Двигатель"
-                        />
-                        <input
-                            onChange={handleValue}
-                            name="gearBox"
-                            type="text"
-                            className="inpModal"
-                            placeholder="Коробка"
-                        />
-                        <input
-                            onChange={handleValue}
-                            name="condition"
-                            type="text"
-                            className="inpModal"
-                            placeholder="Состояние"
-                        />
-                        <input
-                            onChange={handleValue}
-                            name="price"
-                            type="text"
-                            className="inpModal"
-                            placeholder="Цена"
-                        />
-                        <input
-                            onChange={handleValue}
-                            name="description"
-                            type="text"
-                            className="inpModal"
-                            placeholder="Описание"
-                        />
-                        <br></br>
-                        <button className="edit-btn" onClick={handleSave}>
-                            Save
-                        </button>
-                    </div>
-                </div>
-            </div>
             {cardDetails ? (
-                <div className="main-wrapper">
-                    <img
-                        className="details-img"
-                        src={cardDetails.img}
-                        alt="car"
-                    />
-                    <p className="detailed-info">{cardDetails.brand}</p>
-                    <p className="detailed-info">{cardDetails.dateOfRelease}</p>
-                    <p className="detailed-info">{cardDetails.engine}</p>
-                    <p className="detailed-info">{cardDetails.gearBox}</p>
-                    <p className="detailed-info">{cardDetails.condition}</p>
-                    <p className="detailed-info">{cardDetails.price}</p>
-                    <p className="detailed-info">{cardDetails.description}</p>
-                </div>
+<>
+    <Header/>
+<div className="main_container_car">
+<div className="carinfo-container">
+    <div className="sell_name">
+        <div className="sell_name_left">В продаже: {cardDetails.brand} {cardDetails.model} {cardDetails.engine} {cardDetails.dateOfRelease} год</div> 
+        <div className="sell_som_dollar_block">
+            <div className="sell_dollar">$ {cardDetails.price}</div>
+            <div className="sell_som">{cardDetails.priceSom} сом</div>
+        </div>
+       
+    </div>
+
+    <div className="carinfo_left">
+        <div>Характеристики</div>
+       
+
+        <div className="field-row">
+            <div className="left-item item">Год выпуска</div> <div className="right-item item">{cardDetails.dateOfRelease}</div>
+        </div>
+
+        <div className="field-row">
+            <div className="left-item item">Пробег</div> <div className="right-item item">{cardDetails.km} км</div>
+        </div>
+
+        <div className="field-row">
+            <div className="left-item item">Кузов</div> <div className="right-item item">{cardDetails.bodyWork}</div>
+        </div>
+
+
+        <div className="field-row">
+            <div className="left-item item">Цвет</div> <div className="right-item item">{cardDetails.color}</div>
+        </div>
+
+        <div className="field-row">
+            <div className="left-item item">Двигатель</div> <div className="right-item item">{cardDetails.engine}</div>
+        </div>
+
+        <div className="field-row">
+            <div className="left-item item">Коробка</div> <div className="right-item item">{cardDetails.gearBox}</div>
+        </div>
+
+        <div className="field-row">
+            <div className="left-item item">Привод</div> <div className="right-item item">{cardDetails.drive}</div>
+        </div>
+
+        <div className="field-row">
+            <div className="left-item item">Руль</div> <div className="right-item item">{cardDetails.wheel}</div>
+        </div>
+
+        <div className="field-row">
+            <div className="left-item item">Состояние</div> <div className="right-item item">{cardDetails.condition}</div>
+        </div>
+
+        <div className="field-row">
+            <div className="left-item item">Наличие</div> <div className="right-item item">{cardDetails.isAvailable}</div>
+        </div>
+        <br/>
+       <Link to="/"> <button onClick={() =>deleteCar(cardDetails.id)}>Delete</button></Link> 
+       
+        
+    </div>
+    <div className="car_image_block">
+    <div className="car_image_card"> <img src={cardDetails.img} /></div>
+    <div className="car_description"><h3>Описание:</h3><br/>
+        <div>{cardDetails.description}</div>
+    </div>
+    </div>
+</div>
+</div>
+
+</>
+      
             ) : (
                 "Details"
             )}

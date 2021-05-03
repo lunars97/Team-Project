@@ -1,0 +1,96 @@
+.main_container_car{
+    width: 1020px;
+    padding: 5px;
+    border: 1px solid blue;
+    background-color: white;
+    margin:0 auto;
+    display: flex;
+    flex-wrap: wrap; 
+    
+}
+
+.carinfo-container{
+    width: 740px;
+    padding: 5px;
+    border: 1px solid red;
+    max-height: 750px;
+    display: flex;
+    flex-wrap: wrap;   
+}
+.sell_name{
+    width:100%;
+
+    display: flex;
+  
+   
+}
+.sell_som_dollar_block{
+    width: 400px;
+    
+}
+.sell_name_left{
+    
+    width:700px;
+    font-weight: 500;
+    
+  
+}
+
+.sell_dollar{
+    text-align:right;
+    
+
+}
+
+.sell_som{
+    
+    text-align:right;
+
+}
+.carinfo_left{
+    width:200px;
+    padding:10px;
+    margin: 10px 0 0 0;
+    float:left;
+}
+.field-row{
+    display:flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    text-align:left;
+}
+
+.item{
+   
+    text-align: left;
+    width:90px;
+    font-size: 13px;
+    font-weight: initial;
+    margin-top:10px;
+}
+
+.left-item{
+    color: #808080;
+
+}
+.car_image_card{
+    width:470px;
+    height:300px;
+    
+    margin: 7px 0 0 5px;
+   
+    background-size: 100%;
+}
+.car_image_card img{
+    width: 410px;
+}
+
+.car_description{
+   
+    
+    margin: 10px 0 0 0;
+}
+
+.car_image_block{
+    margin: 20px 0 0 0 ;
+}

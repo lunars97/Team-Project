@@ -10,11 +10,25 @@ const Header = () => {
 
     return (
         <>
+        <div className="main_top_reklam"></div>
+        <div className="top_header">
+            <div className="registration_block">
+                Вход / Авторизация
+            </div>
+            <Link className="add_btn" to="/add"> Добавить объявление</Link>
+        </div>
         <header>
+<<<<<<< HEAD
            <Link to="/home" className="header_icon_link"/>
             <div className="nav_links">
            <Link to="/home" className="car_link">Легковые </Link>
            <Link to="/home" className="car_link">Грузовые </Link>
+=======
+           <Link to="/" className="header_icon_link"/>
+            <div class="nav_links">
+           <Link to="/" className="car_link">Легковые </Link>
+           <Link to="/" className="car_link">Грузовые </Link>
+>>>>>>> b8eb4d8002d77bc3b55e480fbf998b44050fecfe
            <input placeholder="...пример: honda accord" className="search_input" type="text"></input>
             <button className="search_btn">Поиск</button>
            </div>
@@ -27,8 +41,12 @@ const Header = () => {
                 <Link> Page</Link>
             </div>
             <div className="reklama">
-               Рекламадателям
+               Рекламодателям
             </div>
+            
+        </div>
+        <div className="reklam_block">
+            <div className="advertising"></div>
         </div>
         </>
     );
