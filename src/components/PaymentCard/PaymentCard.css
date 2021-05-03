@@ -5,7 +5,7 @@
     justify-content: center;
     margin-top: 15px;
 }
-.form-container {
+.form-containers {
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -14,12 +14,7 @@
     margin-top: 20px;
     line-height: 1.2em;
 }
-.card-wrapper {
-    background-color: #6fb7e9;
-    background-color: transparent;
-    width: 100%;
-    display: flex;
-}
+
 .personal-information {
     background-color: #3c8dc5;
     color: #fff;
@@ -69,10 +64,14 @@ input[type="submit"]:hover {
     width: 46.5%;
     float: left;
     margin-bottom: 2px;
+    height: 50px;
 }
 #column-right {
-    width: 46.5%;
+    display: block;
+    width: 45.5%;
     float: right;
+    height: 50px;
+    /* border: none; */
 }
 
 @media only screen and (max-width: 480px) {
