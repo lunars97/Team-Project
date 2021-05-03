@@ -11,6 +11,7 @@ import SignUp from "./components/SignUp/SignUp";
 import AuthContextProvider, {
     authContext,
 } from "./contexts/AuthContext/AuthContext";
+import PaymentCard from "./components/PaymentCard/PaymentCard";
 
 const Routes = () => {
     const { checkAuth } = useContext(authContext);
@@ -37,6 +38,7 @@ const Routes = () => {
                         <Route exact path="/" component={ProductCard} />
                         <Route exact path="/login" component={SignIn} />
                         <Route exact path="/signup" component={SignUp} />
+                        <Route exact path="/payment" component={PaymentCard} />
                     </Switch>
                 </BrowserRouter>
             </ProductContextProvider>

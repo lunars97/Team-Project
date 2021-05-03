@@ -245,7 +245,9 @@ const AddCard = () => {
                                 onChange={(e) => setDescription(e.target.value)}
                             />
                         </p>
-                        <button className="inpBtn">Добавить</button>
+                        <Link to="/payment">
+                            <button className="inpBtn">Добавить</button>
+                        </Link>
                     </form>
                     <Link to="/">
                         <button className="main-btn">На главную</button>

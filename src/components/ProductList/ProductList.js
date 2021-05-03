@@ -11,9 +11,9 @@ const ProductList = () => {
     const arr = [];
     for (let i = 1; i <= allPages; i++) {
         arr.push(i);
-        console.log(arr);
+        // console.log(arr);
     }
-    console.log(arr);
+    // console.log(arr);
     useEffect(() => {
         getCards();
     }, []);
