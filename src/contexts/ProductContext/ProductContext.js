@@ -39,7 +39,7 @@ const ProductContextProvider = ({ children }) => {
             `http://localhost:8000/cars?_page=${page}&_limit=4`
         );
         let num = Math.ceil(res.headers["x-total-count"] / 4);
-        // console.log(res.data);
+
         dispatch({
             type: "GET_CARDS",
             payload: res.data,
@@ -65,9 +65,15 @@ const ProductContextProvider = ({ children }) => {
         await axios.patch(`http://localhost:8000/cars/${id}`, newCard);
         getCardDetails(id);
     }
-    // function handleCloseModal() {
-    //     setModal(false);
-    // }
+    async function addComment(comment, id) {
+        let {
+            data: { comments },
+        } = await axios(`http://localhost:8000/cars/${id}`);
+
+        comments.push(comment);
+
+        axios.patch(`http://localhost:8000/cars/${id}`, comments);
+    }
     return (
         <productContext.Provider
             value={{
@@ -79,6 +85,7 @@ const ProductContextProvider = ({ children }) => {
                 getCardDetails,
                 setPage,
                 saveCard,
+                addComment,
             }}
         >
             {children}

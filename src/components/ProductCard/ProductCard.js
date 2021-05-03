@@ -1,8 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import "./../ProductCard/ProductCard.css";
+import "./ProductCard.css";
 
 const ProductCard = (props) => {
+    function checktime() {
+        let timeNow = (Date.now() - props.item.date) / 1000 / 60;
+        console.log(timeNow);
+        timeNow = Math.ceil(timeNow);
+        if (timeNow >= 59) {
+            timeNow = timeNow / 60;
+            timeNow = Math.ceil(timeNow);
+            return timeNow + " час.назад";
+        } else {
+            return timeNow + " мин.назад";
+        }
+    }
+
     return (
         <Link to={`/details/${props.id}`}>
             <div className="car_card">
@@ -17,7 +30,9 @@ const ProductCard = (props) => {
                         <div className="coll">115</div>
                     </div>
                     <div className="money1 money">{props.item.price} &#36;</div>
-                    <div className="money2 money">411 280 сом </div>
+                    <div className="money2 money">
+                        {props.item.priceSom} сом
+                    </div>
                 </p>
                 <div className="info_wrapper">
                     <div className="year_miles">
@@ -25,6 +40,7 @@ const ProductCard = (props) => {
                         <span>{props.item.engine}</span>
                         <span>{props.item.gearBox}</span>
                         <span
+                            className="color-icon"
                             style={{ backgroundColor: props.item.color }}
                             title="черный"
                         ></span>
@@ -46,7 +62,7 @@ const ProductCard = (props) => {
                     </div>
                     <div className="city_name">
                         Бишкек
-                        <span className="inner-time">11 мин</span>
+                        <span className="inner-time">{checktime()}</span>
                     </div>
                 </div>
             </div>

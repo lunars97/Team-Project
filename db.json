@@ -1,13 +1,90 @@
 {
     "cars": [
         {
+            "img": "",
+            "brand": "",
+            "dateOfRelease": "",
+            "engine": "",
+            "wheel": "",
+            "gearBox": "",
+            "drive": "",
+            "color": "",
+            "bodyWork": "",
+            "isAvailable": "",
+            "model": "",
+            "condition": "",
+            "price": "20 000",
+            "priceSom": "1 698 000",
+            "exchange": "",
+            "description": "",
+            "date": 1619868367127,
             "comments": [
                 {
-                    "text": "хорошая маштинка",
+                    "text": "",
                     "author": "email"
                 }
             ],
+            "id": 1
+        },
+        {
+            "img": "https://im.mashina.kg/tachka/images//2/2/2/2220d6d8ef47734c3860fa6fe2167e10_640x480.jpg",
+            "brand": "asd",
+            "dateOfRelease": "asdasd",
+            "engine": "asdasd",
+            "wheel": "asdasd",
+            "gearBox": "asd",
+            "drive": "asdasd",
+            "color": "silver",
+            "bodyWork": "asdasd",
+            "isAvailable": "asdasd",
+            "model": "asdasd",
+            "condition": "asdasd",
+            "price": "9 000",
+            "priceSom": "764 100",
+            "exchange": "asdasd",
+            "description": "",
+            "date": 1619869529230,
             "id": 2
+        },
+        {
+            "img": "",
+            "brand": "",
+            "dateOfRelease": "",
+            "engine": "",
+            "wheel": "",
+            "gearBox": "",
+            "drive": "",
+            "color": "",
+            "bodyWork": "",
+            "isAvailable": "",
+            "model": "",
+            "condition": "",
+            "price": "",
+            "priceSom": "764 100",
+            "exchange": "",
+            "description": "",
+            "date": 1619869743340,
+            "id": 3
+        },
+        {
+            "img": "",
+            "brand": "",
+            "dateOfRelease": "",
+            "engine": "",
+            "wheel": "",
+            "gearBox": "",
+            "drive": "",
+            "color": "",
+            "bodyWork": "",
+            "isAvailable": "",
+            "model": "",
+            "condition": "",
+            "price": "",
+            "priceSom": "",
+            "exchange": "",
+            "description": "",
+            "date": 1619939574346,
+            "id": 4
         }
     ]
 }

@@ -11,9 +11,9 @@ const ProductList = () => {
     const arr = [];
     for (let i = 1; i <= allPages; i++) {
         arr.push(i);
-        // console.log(arr);
+        console.log(arr);
     }
-    // console.log(arr);
+    console.log(arr);
     useEffect(() => {
         getCards();
     }, []);
@@ -23,6 +23,11 @@ const ProductList = () => {
                 {productsData.map((item) => (
                     <ProductCard key={item.id} item={item} id={item.id} />
                 ))}
+            </div>
+
+            <div className="cont_reklam_block">
+                <div className="advertising_container"></div>
+                <div className="advertising_second"></div>
             </div>
 
             <div className="pagination">

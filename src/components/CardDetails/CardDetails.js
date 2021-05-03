@@ -4,34 +4,6 @@ import "./../CardDetails/CardDetails.css";
 const CardDetails = (props) => {
     const { getCardDetails, cardDetails } = useContext(productContext);
 
-    // const [editStatus, setEditStatus] = useState(false);
-    // const [editedCard, setEditedCard] = useState();
-
-    // const handleValue = (e) => {
-    //     let newCard = {
-    //         ...editedCard,
-    //         [e.target.name]: e.target.value,
-    //     };
-    //     setEditedCard(newCard);
-    // };
-    // const handleSave = () => {
-    //     saveCard(props.match.params.id, editedCard);
-    //     setEditedCard(false);
-    // };
-
-    // const addComment = (comment) => {
-    //     let {data: {comments}} = axios('url' + id)
-
-    //     comments.push(comment)
-
-    //     axios.patch('url' + id, comments)
-    // }
-
-    // const handleSave = () => {
-    //     getCardDetails(props.match.params.id, editedCard);
-    //     setModal(true);
-    // };
-
     useEffect(() => {
         getCardDetails(props.match.params.id);
     }, [props.match.params.id]);

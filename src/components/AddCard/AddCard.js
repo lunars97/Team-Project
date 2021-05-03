@@ -1,3 +1,4 @@
+import { CodeSharp } from "@material-ui/icons";
 import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { productContext } from "../../contexts/ProductContext/ProductContext";
@@ -18,244 +19,283 @@ const AddCard = () => {
     const [condition, setCondition] = useState("");
     const [fuel, setFuel] = useState("");
     const [price, setPrice] = useState("");
+    const [priceSom, setPriceSom] = useState("");
     const [description, setDescription] = useState("");
     const { postNewCard } = useContext(productContext);
 
     function handleClick(e) {
         e.preventDefault();
 
-        let newObj = {
-            img: img,
-            brand: brand,
-            dateOfRelease: dateOfRelease,
-            engine: engine,
-            wheel: wheel,
-            gearBox: gearBox,
-            drive: drive,
-            color: carColor,
-            bodyWork: bodyWork,
-            isAvailable: isAvailable,
-            model: model,
-            condition: condition,
-            price: price,
-            exchange: exchange,
-            description: description,
-        };
-        postNewCard(newObj);
-        setImg("");
-        setExchange("");
-        setBrand("");
-        setDateOfRelease("");
-        setCarColor("");
-        setModel("");
-        setFuel("");
-        setEngine("");
-        setWheel("");
-        setBodyWork("");
-        setDrive("");
-        setGearBox("");
-        setCondition("");
-        setDescription("");
-        setPrice("");
-        setIsAvailable("");
-    }
+        function convert(e) {
+            setPrice(e);
+            let som = Math.floor(e * 84.9);
+            som = som.toString().replace(/(\d)(?=(\d{3})+$)/g, "$1 ");
+            setPriceSom(som);
+        }
 
-    return (
-        <>
-            <div className="main_inp-container">
-                <div className="inp-container">
-                    <form className="form-container" onSubmit={handleClick}>
-                        {/* <h2 style={{ color: item.carColor }}> */}
-                        <h2 className="form-container">Добавить объявление</h2>
-                        <p>
-                            <input
-                                className="inp-add"
-                                name="img"
-                                value={img}
-                                type="text"
-                                placeholder="Изображение"
-                                onChange={(e) => setImg(e.target.value)}
-                            />
-                        </p>
-                        <p>
-                            <input
-                                className="inp-add"
-                                name="brand"
-                                value={brand}
-                                type="text"
-                                placeholder="Марка"
-                                // onChange={handleValues}
-                                onChange={(e) => setBrand(e.target.value)}
-                            />
-                        </p>
-                        <p>
-                            <input
-                                className="inp-add"
-                                name="dateOfRelease"
-                                value={dateOfRelease}
-                                type="text"
-                                placeholder="Год выпуска"
-                                // onChange={handleValues}
-                                onChange={(e) =>
-                                    setDateOfRelease(e.target.value)
-                                }
-                            />
-                        </p>
-                        <p>
-                            <input
-                                className="inp-add"
-                                name="model"
-                                value={model}
-                                type="text"
-                                placeholder="Модель"
-                                // onChange={handleValues}
-                                onChange={(e) => setModel(e.target.value)}
-                            />
-                        </p>
-                        <p>
-                            <input
-                                className="inp-add"
-                                name="fuel"
-                                value={fuel}
-                                type="text"
-                                placeholder="Топливо"
-                                // onChange={handleValues}
-                                onChange={(e) => setFuel(e.target.value)}
-                            />
-                        </p>
-                        <p>
-                            <input
-                                className="inp-add"
-                                name="bodyWork"
-                                value={bodyWork}
-                                type="text"
-                                placeholder="Кузов"
-                                // onChange={handleValues}
-                                onChange={(e) => setBodyWork(e.target.value)}
-                            />
-                        </p>
-                        <p>
-                            <input
-                                className="inp-add"
-                                name="drive"
-                                value={drive}
-                                type="text"
-                                placeholder="Привод"
-                                // onChange={handleValues}
-                                onChange={(e) => setDrive(e.target.value)}
-                            />
-                        </p>
-                        <p>
-                            <input
-                                className="inp-add"
-                                name="engine"
-                                value={engine}
-                                type="text"
-                                placeholder="Двигатель"
-                                // onChange={handleValues}
-                                onChange={(e) => setEngine(e.target.value)}
-                            />
-                        </p>
-                        <p>
-                            <input
-                                className="inp-add"
-                                name="wheel"
-                                value={wheel}
-                                type="text"
-                                placeholder="Руль"
-                                // onChange={handleValues}
-                                onChange={(e) => setWheel(e.target.value)}
-                            />
-                        </p>
-                        <p>
-                            <input
-                                className="inp-add"
-                                name="gearBox"
-                                value={gearBox}
-                                type="text"
-                                placeholder="Коробка"
-                                // onChange={handleValues}
-                                onChange={(e) => setGearBox(e.target.value)}
-                            />
-                        </p>
-                        <label for="cars">Цвет машины:</label>
-                        <select
-                            id="cars"
-                            onChange={(e) => setCarColor(e.target.value)}
-                        >
-                            <option value="white">белый</option>
-                            <option value="black" selected>
-                                черный
-                            </option>
-                            <option value="silver">серебристый</option>
-                        </select>
-                        <p>
-                            <input
-                                className="inp-add"
-                                name="condition"
-                                value={condition}
-                                type="text"
-                                placeholder="Состояние"
-                                // onChange={handleValues}
-                                onChange={(e) => setCondition(e.target.value)}
-                            />
-                        </p>
-                        <p>
-                            <input
-                                className="inp-add"
-                                name="isAvailable"
-                                value={isAvailable}
-                                type="text"
-                                placeholder="Наличие"
-                                // onChange={handleValues}
-                                onChange={(e) => setIsAvailable(e.target.value)}
-                            />
-                        </p>
-                        <p>
-                            <input
-                                className="inp-add"
-                                name="exchange"
-                                value={exchange}
-                                type="text"
-                                placeholder="Обмен"
-                                // onChange={handleValues}
-                                onChange={(e) => setExchange(e.target.value)}
-                            />
-                        </p>
-                        <p>
-                            <input
-                                className="inp-add"
-                                name="telephone"
-                                value={price}
-                                type="number"
-                                placeholder="Цена в &#36;"
-                                min="1"
-                                // onChange={handleValues}
-                                onChange={(e) => setPrice(e.target.value)}
-                            />
-                        </p>
-                        <p>
-                            <textarea
-                                className="inp-add"
-                                name="description"
-                                value={description}
-                                type="text"
-                                placeholder="Описание"
-                                // onChange={handleValues}
-                                onChange={(e) => setDescription(e.target.value)}
-                            />
-                        </p>
-                        <Link to="/payment">
-                            <button className="inpBtn">Добавить</button>
+        function dollChange() {
+            let dollar = price;
+            dollar = dollar.toString().replace(/(\d)(?=(\d{3})+$)/g, "$1 ");
+            setPrice(dollar);
+        }
+
+        function handleColor(e) {
+            setCarColor(e);
+        }
+
+        function handleClick(e) {
+            e.preventDefault();
+
+            let newObj = {
+                img: img,
+                brand: brand,
+                dateOfRelease: dateOfRelease,
+                engine: engine,
+                wheel: wheel,
+                gearBox: gearBox,
+                drive: drive,
+                color: carColor,
+                bodyWork: bodyWork,
+                isAvailable: isAvailable,
+                model: model,
+                condition: condition,
+                price: price,
+                priceSom: priceSom,
+                exchange: exchange,
+                description: description,
+                date: Date.now(),
+            };
+            postNewCard(newObj);
+            setImg("");
+            setExchange("");
+            setBrand("");
+            setDateOfRelease("");
+            setCarColor("");
+            setModel("");
+            setFuel("");
+            setEngine("");
+            setWheel("");
+            setBodyWork("");
+            setDrive("");
+            setGearBox("");
+            setCondition("");
+            setDescription("");
+            setPrice("");
+            setIsAvailable("");
+        }
+
+        return (
+            <>
+                <div className="main_inp-container">
+                    <div className="inp-container">
+                        <form className="form-container" onSubmit={handleClick}>
+                            {/* <h2 style={{ color: item.carColor }}> */}
+                            <h2 className="form-container">
+                                Добавить объявление
+                            </h2>
+                            <p>
+                                <input
+                                    className="inp-add"
+                                    name="img"
+                                    value={img}
+                                    type="text"
+                                    placeholder="Изображение"
+                                    onChange={(e) => setImg(e.target.value)}
+                                />
+                            </p>
+                            <p>
+                                <input
+                                    className="inp-add"
+                                    name="brand"
+                                    value={brand}
+                                    type="text"
+                                    placeholder="Марка"
+                                    // onChange={handleValues}
+                                    onChange={(e) => setBrand(e.target.value)}
+                                />
+                            </p>
+                            <p>
+                                <input
+                                    className="inp-add"
+                                    name="dateOfRelease"
+                                    value={dateOfRelease}
+                                    type="text"
+                                    placeholder="Год выпуска"
+                                    // onChange={handleValues}
+                                    onChange={(e) =>
+                                        setDateOfRelease(e.target.value)
+                                    }
+                                />
+                            </p>
+                            <p>
+                                <input
+                                    className="inp-add"
+                                    name="model"
+                                    value={model}
+                                    type="text"
+                                    placeholder="Модель"
+                                    // onChange={handleValues}
+                                    onChange={(e) => setModel(e.target.value)}
+                                />
+                            </p>
+                            <p>
+                                <input
+                                    className="inp-add"
+                                    name="fuel"
+                                    value={fuel}
+                                    type="text"
+                                    placeholder="Топливо"
+                                    // onChange={handleValues}
+                                    onChange={(e) => setFuel(e.target.value)}
+                                />
+                            </p>
+                            <p>
+                                <input
+                                    className="inp-add"
+                                    name="bodyWork"
+                                    value={bodyWork}
+                                    type="text"
+                                    placeholder="Кузов"
+                                    // onChange={handleValues}
+                                    onChange={(e) =>
+                                        setBodyWork(e.target.value)
+                                    }
+                                />
+                            </p>
+                            <p>
+                                <input
+                                    className="inp-add"
+                                    name="drive"
+                                    value={drive}
+                                    type="text"
+                                    placeholder="Привод"
+                                    // onChange={handleValues}
+                                    onChange={(e) => setDrive(e.target.value)}
+                                />
+                            </p>
+                            <p>
+                                <input
+                                    className="inp-add"
+                                    name="engine"
+                                    value={engine}
+                                    type="text"
+                                    placeholder="Двигатель"
+                                    // onChange={handleValues}
+                                    onChange={(e) => setEngine(e.target.value)}
+                                />
+                            </p>
+                            <p>
+                                <input
+                                    className="inp-add"
+                                    name="wheel"
+                                    value={wheel}
+                                    type="text"
+                                    placeholder="Руль"
+                                    // onChange={handleValues}
+                                    onChange={(e) => setWheel(e.target.value)}
+                                />
+                            </p>
+                            <p>
+                                <input
+                                    className="inp-add"
+                                    name="gearBox"
+                                    value={gearBox}
+                                    type="text"
+                                    placeholder="Коробка"
+                                    // onChange={handleValues}
+                                    onChange={(e) => setGearBox(e.target.value)}
+                                />
+                            </p>
+                            <label for="cars">Цвет машины:</label>
+                            <select
+                                id="cars"
+                                onChange={(e) => handleColor(e.target.value)}
+                            >
+                                <option value="white">белый</option>
+                                <option value="dark-blue">темно-синий</option>
+                                <option value="black" selected>
+                                    черный
+                                </option>
+                                <option value="silver">серебристый</option>
+                            </select>
+                            <p>
+                                <input
+                                    className="inp-add"
+                                    name="condition"
+                                    value={condition}
+                                    type="text"
+                                    placeholder="Состояние"
+                                    // onChange={handleValues}
+                                    onChange={(e) =>
+                                        setCondition(e.target.value)
+                                    }
+                                />
+                            </p>
+                            <p>
+                                <input
+                                    className="inp-add"
+                                    name="isAvailable"
+                                    value={isAvailable}
+                                    type="text"
+                                    placeholder="Наличие"
+                                    // onChange={handleValues}
+                                    onChange={(e) =>
+                                        setIsAvailable(e.target.value)
+                                    }
+                                />
+                            </p>
+                            <p>
+                                <input
+                                    className="inp-add"
+                                    name="exchange"
+                                    value={exchange}
+                                    type="text"
+                                    placeholder="Обмен"
+                                    // onChange={handleValues}
+                                    onChange={(e) =>
+                                        setExchange(e.target.value)
+                                    }
+                                />
+                            </p>
+                            <p>
+                                <input
+                                    className="inp-add"
+                                    name="telephone"
+                                    value={price}
+                                    type="number"
+                                    placeholder="Цена в &#36;"
+                                    min="1"
+                                    // onChange={handleValues}
+                                    onChange={(e) => convert(e.target.value)}
+                                />
+                            </p>
+                            <p>
+                                <textarea
+                                    className="inp-add"
+                                    name="description"
+                                    value={description}
+                                    type="text"
+                                    placeholder="Описание"
+                                    // onChange={handleValues}
+                                    onChange={(e) =>
+                                        setDescription(e.target.value)
+                                    }
+                                />
+                            </p>
+                            <button
+                                onClick={() => dollChange()}
+                                className="inpBtn"
+                            >
+                                Добавить
+                            </button>
+                        </form>
+                        <Link to="/">
+                            <button className="main-btn">На главную</button>
                         </Link>
-                    </form>
-                    <Link to="/">
-                        <button className="main-btn">На главную</button>
-                    </Link>
+                    </div>
                 </div>
-            </div>
-        </>
-    );
+            </>
+        );
+    }
 };
-
 export default AddCard;
