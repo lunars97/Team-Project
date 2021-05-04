@@ -82,7 +82,7 @@ Link{
 
 
 .views_icon{
-    background: url('https://www.mashina.kg/bundles/client/default/img/views.svg') no-repeat center 2px;
+    /* background: url('https://www.mashina.kg/bundles/client/default/img/views.svg') no-repeat center 2px; */
     width:20px;
     height:16px;
     float:right;
@@ -104,11 +104,12 @@ Link{
     height: 13px;
     margin: 2px 0 0;
     float: right;
-    border: none;
+    border: 1px solid #a6a6a6;
     -webkit-transform: scale(0.999);
     transform: scale(0.999);
     background-color:#000000;
     border-radius:10px;
+    
 }
 .listing-icons{
     
@@ -130,7 +131,7 @@ Link{
 }
 
 .advertising_container{
-    background: url('http://d2.files.namba.kg/files/186689782') no-repeat;
+    /* background: url('http://d2.files.namba.kg/files/186689782') no-repeat; */
     width: 199px;
     border: 1px solid red;
     margin-left: 10px;
@@ -139,7 +140,7 @@ Link{
 }
 
 .advertising_second{
-    background: url('https://www.mashina.kg/bundles/client/default/img/banners/right-bazar-mar18.jpg') no-repeat;
+    /* background: url('https://www.mashina.kg/bundles/client/default/img/banners/right-bazar-mar18.jpg') no-repeat; */
     width: 199px;
     border: 1px solid red;
     margin-left: 10px;

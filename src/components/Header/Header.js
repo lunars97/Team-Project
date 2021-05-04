@@ -18,7 +18,7 @@ const Header = () => {
             <Link className="add_btn" to="/add"> Добавить объявление</Link>
         </div>
         <header>
-           <Link to="/" className="header_icon_link"/>
+           <a href="/" className="header_icon_link"/>
             <div class="nav_links">
            <Link to="/" className="car_link">Легковые </Link>
            <Link to="/" className="car_link">Грузовые </Link>

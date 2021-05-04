@@ -2,11 +2,12 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./ProductCard.css";
 import axios from "axios";
-import { CompareSharp } from "@material-ui/icons";
+
 
 
 
 const ProductCard = (props) => {
+    console.log(props.item)
 
     let carId = props.item.id
 

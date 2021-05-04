@@ -18,10 +18,11 @@ const CardDetails = (props) => {
 
     
 
-
+    console.log(props.match.params.id)
 
     useEffect(() => {
-        getCardDetails(props.match.params.id);
+        getCardDetails(props.match.params.carId);
+        
     }, [props.match.params.id]);
     
     console.log(props);
@@ -87,6 +88,7 @@ const CardDetails = (props) => {
         </div>
         <br/>
        <Link to="/"> <button onClick={() =>deleteCar(cardDetails.id)}>Delete</button></Link> 
+       <Link to="/edit"><button >Edit</button> </Link>
        
         
     </div>

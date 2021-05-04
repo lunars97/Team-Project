@@ -8,6 +8,7 @@ import ProductList from "./components/ProductList/ProductList";
 import ProductContextProvider from "./contexts/ProductContext/ProductContext";
 import CardDetails from "./components/CardDetails/CardDetails";
 import CarInfo from "./components/CarInfo/CarInfo";
+import CarEdit from "./components/CarEdit/CarEdit";
 
 const Routes = () => {
     return (
@@ -19,8 +20,10 @@ const Routes = () => {
                     <Route exact path="/header" component={Header} />
                     <Route exact path="/add" component={AddCard} />
                     <Route exact path="/list" component={ProductList} />
-                    <Route exact path="/details/:id" component={CardDetails} />
+                    <Route exact path="/details/:carId" component={CardDetails} />
                     <Route exact path="/carinfo" component={CarInfo} />
+                    <Route exact path="/edit/:id" component={CarEdit} />
+
                 </Switch>
             </BrowserRouter>
         </ProductContextProvider>

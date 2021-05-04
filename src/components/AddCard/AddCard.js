@@ -232,11 +232,16 @@ const AddCard = () => {
                             id="cars"
                             onChange={(e) => handleColor(e.target.value)}
                         >
-                            <option value="white">белый</option>
-                            <option value="black" selected>
+                            <option value="#FFFFFF">белый</option>
+                            <option value="#AF2B1E">красный</option>
+                            <option value="#386646">зеленый</option>
+                            <option value="#00BFFF">голубой</option>
+                            <option value="#1A4780">синий</option>
+                            <option value="#FFBA00">жёлтый</option>
+                            <option value="#000000" selected>
                                 черный
                             </option>
-                            <option value="silver">серебристый</option>
+                            <option value="#C0C0C0">серебристый</option>
                         </select>
                         <p>
                             <input
