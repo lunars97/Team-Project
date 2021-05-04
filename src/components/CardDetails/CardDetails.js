@@ -31,7 +31,7 @@ const CardDetails = (props) => {
             {cardDetails ? (
 <>
     <Header/>
-<div className="main_container_car">
+ <div className="main_container_car">
 <div className="carinfo-container">
     <div className="sell_name">
         <div className="sell_name_left">В продаже: {cardDetails.brand} {cardDetails.model} {cardDetails.engine} {cardDetails.dateOfRelease} год</div> 
@@ -88,7 +88,7 @@ const CardDetails = (props) => {
         </div>
         <br/>
        <Link to="/"> <button onClick={() =>deleteCar(cardDetails.id)}>Delete</button></Link> 
-       <Link to="/edit"><button >Edit</button> </Link>
+       <Link to={`/edit/${cardDetails.id}`}><button >Edit</button> </Link>
        
         
     </div>

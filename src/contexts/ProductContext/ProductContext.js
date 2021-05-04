@@ -6,6 +6,7 @@ const INIT_STATE = {
     productsData: [],
     cardDetails: null,
     allPages: 0,
+    cardEdit: null,
 };
 const reducer = (state = INIT_STATE, action) => {
     switch (action.type) {
@@ -20,7 +21,13 @@ const reducer = (state = INIT_STATE, action) => {
                 ...state,
                 cardDetails: action.payload,
             };
-        default:
+        case "GET_CARD_EDIT":
+            return {
+                ...state,
+                cardEdit: action.payload,
+            };
+        
+            default:
             return state;
     }
 };
@@ -60,6 +67,14 @@ const ProductContextProvider = ({ children }) => {
             payload: data,
         });
     }
+
+    async function getCardEdit(id) {
+        let { data } = await axios.get(`http://localhost:8000/cars/${id}`);
+        dispatch({
+            type: "GET_CARD_EDIT",
+            payload: data,
+        });
+    }
    
     async function saveCard(id, newCard) {
         await axios.patch(`http://localhost:8000/cars/${id}`, newCard);
@@ -73,6 +88,7 @@ const ProductContextProvider = ({ children }) => {
             value={{
                 productsData: state.productsData,
                 cardDetails: state.cardDetails,
+                cardEdit: state.cardEdit,
                 allPages: state.allPages,
                 getCards,
                 postNewCard,
@@ -80,6 +96,7 @@ const ProductContextProvider = ({ children }) => {
                 setPage,
                 saveCard,
                 handleCloseModal,
+                getCardEdit,
             }}
         >
             {children}
