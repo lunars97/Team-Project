@@ -1,8 +1,20 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import "../PaymentCard/PaymentCard.css";
 
 const PaymentCard = () => {
+    const history = useHistory();
+    const clickSubmit = (e) => {
+        history.push("/");
+        // [e.value.name] = e.target.value;
+        // const inpName = e.target.value;
+        // if (inpName("")) {
+        //     alert("Заполните все поля!");
+        // } else {
+        //     alert("Спасибо за оплату!");
+        // }
+    };
+
     return (
         <>
             <div className="payment-wrapper">
@@ -35,7 +47,9 @@ const PaymentCard = () => {
                         type="text"
                         name="number"
                         className="name-card"
+                        maxLength="16"
                         placeholder="Номер карты"
+                        pattern="[0-9]*"
                     />
                     <input
                         id="column-left"
@@ -43,6 +57,8 @@ const PaymentCard = () => {
                         name="expiry"
                         className="name-card"
                         placeholder="MM / YY"
+                        maxLength="4"
+                        pattern="[0-9]*"
                     />
                     <input
                         id="column-right"
@@ -50,12 +66,13 @@ const PaymentCard = () => {
                         name="cvc"
                         className="name-card"
                         placeholder="CCV"
+                        maxLength="3"
+                        pattern="[0-9]*"
                     />
 
                     <input
                         id="column-left"
                         type="text"
-                        // className="city-card"
                         name="city"
                         required="required"
                         autoComplete="on"
@@ -65,7 +82,6 @@ const PaymentCard = () => {
                     <input
                         id="column-right"
                         type="text"
-                        // className="zip-card"
                         name="zipcode"
                         required="required"
                         autoComplete="on"
@@ -82,9 +98,11 @@ const PaymentCard = () => {
                         maxLength="40"
                         placeholder="Email"
                     />
-                    <Link to="/">
-                        <input id="input-button" type="submit" value="Submit" />
-                    </Link>
+                    {/* <Link to="/"> */}
+                    <button onClick={clickSubmit} id="input-button">
+                        Оплатить
+                    </button>
+                    {/* </Link> */}
                 </div>
             </form>
         </>

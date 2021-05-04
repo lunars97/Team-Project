@@ -4,7 +4,7 @@ import "./../CardDetails/CardDetails.css";
 import { Link } from "react-router-dom";
 
 const CardDetails = (props) => {
-    const { getCardDetails, cardDetails, deleteCar } = useContext(
+    const { getCardDetails, cardDetails, deleteCar, addComment } = useContext(
         productContext
     );
 
@@ -150,6 +150,16 @@ const CardDetails = (props) => {
                             </div>
                         </div>
                     </div>
+                    {/* <p>Добавить комментарий</p>
+                    <ul>
+                        {addComment.map((item) => {
+                            <li
+                                key={item.comment}
+                                comment={item.comment}
+                                id={item.comment.id}
+                            ></li>;
+                        })}
+                    </ul> */}
                 </>
             ) : (
                 "Details"
