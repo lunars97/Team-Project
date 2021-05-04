@@ -9,7 +9,7 @@ import DetailsIcon from '@material-ui/icons/Details';
 
 
 const Basket = (props) => {
-    const {getCart, basket, changeProductCount} = useContext(productContext)
+    const {getCart, basket, deleteFromCart, changeProductCount} = useContext(productContext)
 
     useEffect(() => {
         getCart()
@@ -28,6 +28,7 @@ const Basket = (props) => {
                             <th>Состояние</th>
                             <th>Год выпуска</th>
                             <th>Details</th>
+                            <th>Удаление</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -44,6 +45,9 @@ const Basket = (props) => {
                                     <Link to={`/details/${elem.item.id}`}>
                                         <div><DetailsIcon/></div>
                                     </Link>
+                                </td>
+                                <td>
+                                    <button onClick ={ () => deleteFromCart (elem.item.id) } >&times;</button>
                                 </td>
                             </tr>
                         ))}

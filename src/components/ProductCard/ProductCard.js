@@ -10,68 +10,75 @@ import IconButton from '@material-ui/core/IconButton';
 
 const ProductCard = (props) => {
 const {addProductToCard, checkProductInCart} = useContext(productContext)
-    let carId = props.item.id
+    function checktime() {
+        let timeNow = (Date.now() - props.item.date) / 1000 / 60;
+        console.log(timeNow);
+        timeNow = Math.ceil(timeNow);
+        if (timeNow >= 59) {
+            timeNow = timeNow / 60;
+            timeNow = Math.ceil(timeNow);
+            return timeNow + " час.назад";
+        } else {
+            return timeNow + " мин.назад";
+        }
+    }
 
-   const Views = async () => {
-       let { data } = await axios(`http://localhost:8000/cars/${carId}`)
+    let carId = props.item.id;
 
-       let plusVue = (data.views + 1)
-       console.log(plusVue)
+    const Views = async () => {
+        let { data } = await axios(`http://localhost:8000/cars/${carId}`);
 
-       let newObj = {
-        bodyWork: data.bodyWork,
-        brand: data.brand,
-        color: data.color,
-        condition: data.condition,
-        date: data.date,
-        dateOfRelease: data.dateOfRelease,
-        description: data.description,
-        drive:  data.drive,
-        engine: data.engine,
-        exchange: data.exchange,
-        fuel:  data.fuel,
-        gearBox: data.gearBox,
-        id: data.id,
-        img: data.img, 
-        isAvailable: data.isAvailable,
-        km: data.km,
-        model:   data.model,
-        price: data.price,
-        priceSom: data.priceSom,
-        views: plusVue,
-        wheel: data.wheel,        
-       }
-       console.log(newObj)
-       await axios.patch(`http://localhost:8000/cars/${props.item.id}`, newObj);
-        
-   } 
+        let plusVue = data.views + 1;
+        console.log(plusVue);
 
+        let newObj = {
+            bodyWork: data.bodyWork,
+            brand: data.brand,
+            color: data.color,
+            condition: data.condition,
+            date: data.date,
+            dateOfRelease: data.dateOfRelease,
+            description: data.description,
+            drive: data.drive,
+            engine: data.engine,
+            exchange: data.exchange,
+            fuel: data.fuel,
+            gearBox: data.gearBox,
+            id: data.id,
+            img: data.img,
+            isAvailable: data.isAvailable,
+            km: data.km,
+            model: data.model,
+            price: data.price,
+            priceSom: data.priceSom,
+            views: plusVue,
+            wheel: data.wheel,
+        };
+        console.log(newObj);
+        await axios.patch(
+            `http://localhost:8000/cars/${props.item.id}`,
+            newObj
+        );
+    };
 
+    function checktime() {
+        let timeNow = (Date.now() - props.item.date) / 1000 / 60;
+        timeNow = Math.ceil(timeNow);
 
+        if (timeNow >= 59 && timeNow <= 1380) {
+            timeNow = timeNow / 60;
+            timeNow = Math.ceil(timeNow);
+            return timeNow + " час назад";
+        } else if (timeNow >= 240) {
+            timeNow = timeNow / 60 / 24;
+            timeNow = Math.round(timeNow);
+            return timeNow + " д. назад";
+        } else {
+            return timeNow + " мин назад";
+        }
+    }
 
-
- function checktime(){
-     let timeNow = ((Date.now() - props.item.date) / 1000) / 60
-     timeNow = Math.ceil(timeNow)
-     
-     if(timeNow >= 59 && timeNow <= 1380){
-         timeNow = (timeNow / 60)
-         timeNow = Math.ceil(timeNow)
-         return timeNow + " час назад"
-   }
-   else if(timeNow >= 240){
-         timeNow = (timeNow / 60 / 24)
-         timeNow = Math.round(timeNow)
-         return timeNow + " д. назад"
-   }
-     
-     else
-        {return timeNow + " мин назад"}
- }
-
-   
     return (
-        
             <div className="car_card">
                 <img
                     className="card_image"
@@ -81,28 +88,31 @@ const {addProductToCard, checkProductInCart} = useContext(productContext)
                 <div className="car_name">{props.item.brand}</div>
                 <p className="price">
                     <div className="views_icon">
-                        <div className="coll">115</div>
+                        <div className="coll">{props.item.views}</div>
                     </div>
                     <div className="money1 money">{props.item.price} &#36;</div>
-                    <div className="money2 money">411 280 сом </div>
+                    <div className="money2 money">
+                        {props.item.priceSom} сом
+                    </div>
                 </p>
                 <div className="info_wrapper">
                     <div className="year_miles">
-                        <span>{props.item.dateOfRelease}</span>
-                        <span>{props.item.engine}</span>
-                        <span>{props.item.gearBox}</span>
+                        <span>{props.item.dateOfRelease} </span>
+                        <span>{props.item.engine} </span>
+                        <span>{props.item.gearBox} </span>
                         <span
+                            className="color-icon"
                             style={{ backgroundColor: props.item.color }}
                             title="черный"
                         ></span>
                     </div>
                     <div className="body_type">
-                        <span>{props.item.bodyWork}</span>
-                        <span>{props.item.fuel}</span>
+                        <span>{props.item.bodyWork}, </span>
+                        <span>{props.item.fuel} </span>
                     </div>
                     <div className="volume">
-                        <span>{props.item.fuel}</span>
-                        <span>{props.item.engine}</span>
+                        <span>{props.item.wheel}, </span>
+                        <span>{props.item.km} км </span>
                     </div>
 
                     <div className="card_icons">
@@ -124,7 +134,7 @@ const {addProductToCard, checkProductInCart} = useContext(productContext)
                     
                     <div className="city_name">
                         Бишкек
-                        <span className="inner-time">11 мин</span>
+                        <span className="inner-time">{checktime()}</span>
                     </div>
                 </div>
             </div>
