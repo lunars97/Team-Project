@@ -1,27 +1,27 @@
 {
   "cars": [
     {
-      "img": "https://im.mashina.kg/tachka/images//e/b/1/eb1b98f44c3d1f82d7bedda76ce3f59d_640x480.jpg",
+      "img": "https://im.mashina.kg/tachka/images//2/2/2/2220d6d8ef47734c3860fa6fe2167e10_640x480.jpg",
       "brand": "Toyota",
-      "dateOfRelease": "2005",
+      "dateOfRelease": "1995",
       "engine": "2.0",
       "wheel": "Слева",
-      "gearBox": "Механика",
+      "gearBox": "фы",
       "drive": "Передний",
-      "color": "white",
+      "color": "#000000",
       "bodyWork": "Седан",
-      "isAvailable": "asd",
+      "isAvailable": "в наличии",
       "model": "Ipsum",
-      "condition": "Прекрасное",
-      "price": "5 400",
-      "priceSom": "458 460",
+      "condition": "Отличное",
+      "price": "65 000",
+      "priceSom": "5 518 500",
       "exchange": "не интересует",
       "description": "",
-      "date": 1620033200737,
+      "date": 1620113725049,
       "fuel": "Бензин",
-      "km": "145000",
-      "id": 1,
-      "views": 22
+      "km": "140 000",
+      "views": 8,
+      "id": 2
     }
   ]
 }

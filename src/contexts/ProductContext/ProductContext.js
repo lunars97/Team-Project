@@ -59,6 +59,11 @@ const ProductContextProvider = ({ children }) => {
         await axios.post("http://localhost:8000/cars", card);
         getCards();
     };
+
+    const patchNewCard =  (card) => {
+     
+        console.log(card)
+    };
     
     async function getCardDetails(id) {
         let { data } = await axios.get(`http://localhost:8000/cars/${id}`);
@@ -78,6 +83,7 @@ const ProductContextProvider = ({ children }) => {
    
     async function saveCard(id, newCard) {
         await axios.patch(`http://localhost:8000/cars/${id}`, newCard);
+        console.log(newCard)
         getCardDetails(id);
     }
     function handleCloseModal() {
@@ -92,6 +98,7 @@ const ProductContextProvider = ({ children }) => {
                 allPages: state.allPages,
                 getCards,
                 postNewCard,
+                patchNewCard,
                 getCardDetails,
                 setPage,
                 saveCard,

@@ -179,7 +179,7 @@
 }
 
 
-.edit-inputs{
+.edit-inps{
     border: 1px solid #DCDCDC;
     border-radius: 5px;
     width: 90px;
@@ -189,12 +189,15 @@
     margin-top:50px;
     border: 1px solid #DCDCDC;
     padding: 5px;
+    width:398px;
+    margin-left:5px;
 }
 .top-inps{
     width:70px;
+    color:black;
 }
 .edit-description{
-    width: 400px;
+    width: 350px;
     height:100px;
     text-align:left;
    

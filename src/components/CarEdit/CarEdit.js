@@ -1,15 +1,54 @@
 import { productContext } from "../../contexts/ProductContext/ProductContext";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import Header from "../Header/Header";
+import { CodeSharp } from "@material-ui/icons";
+
 
 const CarEdit = (props) => {
-
-    const { getCardEdit, cardEdit } = useContext(productContext);
+    const { getCardEdit, cardEdit, saveCard } = useContext(productContext);
 
     useEffect(() => {
-        getCardEdit(props.match.params.id);
+        getCardEdit(props.match.params.id)
+       
+    }, [])
+
+   
+
+
+   
+    const [EditedCar, setEditedCar] = useState();
+
+    function handleEdit(e){
+        
+
+        let newObj = {
+            ...cardEdit,
+            [e.target.name] : e.target.value
+         
+        };   
+        setEditedCar(newObj)
+    }
+    
+    function handleEditSave(){
+
+
+        saveCard(cardEdit.id, EditedCar)
+        // console.log(cardEdit.id)
+        // console.log(newObj)
+    }
+
+    
+
+  
+    
+
+    // useEffect(() => {
+    //     getCardEdit(props.match.params.id);
       
-    }, [props.match.params.id]);
+    // }, [props.match.params.id]);
+
+
+
 
 
     return (
@@ -20,10 +59,19 @@ const CarEdit = (props) => {
             <div className="main_container_car">
 <div className="carinfo-container">
     <div className="sell_name">
-        <div className="sell_name_left">В продаже: <input className="edit-inputs top-inps" value={cardEdit.brand}/> <input className="edit-inputs top-inps" value={cardEdit.model}/> <input className="edit-inputs top-inps" value={cardEdit.engine}/> <input className="edit-inputs top-inps" value={cardEdit.dateOfRelease}/> год</div> 
+        <div className="sell_name_left">
+            В продаже: <input name="brand" onChange={(e) => handleEdit(e) } className="edit-inps top-inps" placeholder={cardEdit.brand}/> 
+                        <input name="model" onChange={(e) => handleEdit(e) } className="edit-inps top-inps" placeholder={cardEdit.model}/> 
+                        <input name="engine" onChange={(e) => handleEdit(e) } className="edit-inps top-inps" placeholder={cardEdit.engine}/> 
+                        <input name="dateOfRelease" onChange={(e) => handleEdit(e) } className="edit-inps top-inps" placeholder={cardEdit.dateOfRelease} /> год</div> 
+        
         <div className="sell_som_dollar_block">
-            <div className="sell_dollar">$ <input className="edit-inputs" value={cardEdit.price}/> </div>
-            <div className="sell_som">Сом <input className="edit-inputs" value={cardEdit.priceSom}/></div>
+            <div className="sell_dollar">
+                $ <input onChange={(e) => handleEdit(e) } className="edit-inps" placeholder={cardEdit.price}/>
+            </div>
+            <div className="sell_som">Сом 
+                <input onChange={(e) => handleEdit(e) } className="edit-inps" placeholder={cardEdit.priceSom}/>
+            </div>
         </div>
        
     </div>
@@ -33,58 +81,96 @@ const CarEdit = (props) => {
        
 
         <div className="field-row">
-            <div className="left-item item">Год выпуска</div> <div className="right-item item"><input className="edit-inputs" value={cardEdit.dateOfRelease}/></div>
+            <div className="left-item item">Год выпуска</div> 
+            <div className="right-item item">
+                <input name="dateOfRelease" onChange={(e) => handleEdit(e) } className="edit-inps" placeholder={cardEdit.dateOfRelease}/>
+            </div>
         </div>
 
         <div className="field-row">
-            <div className="left-item item">Пробег</div> <div className="right-item item"><input className="edit-inputs" value={cardEdit.km}/></div>
+            <div className="left-item item">Пробег</div> 
+            <div className="right-item item">
+                <input name="km" onChange={(e) => handleEdit(e) } className="edit-inps" placeholder={cardEdit.km}/>
+            </div>
         </div>
 
         <div className="field-row">
-            <div className="left-item item">Кузов</div> <div className="right-item item"><input className="edit-inputs" value={cardEdit.bodyWork}/> </div>
+            <div className="left-item item">Кузов</div> 
+            <div className="right-item item">
+                <input  name="bodyWork" onChange={(e) => handleEdit(e) } className="edit-inps" placeholder={cardEdit.bodyWork}/> 
+            </div>
         </div>
 
 
         <div className="field-row">
-            <div className="left-item item">Цвет</div> <div className="right-item item"><input className="edit-inputs" value={cardEdit.color}/> </div>
+            <div className="left-item item">Цвет</div> 
+            <div className="right-item item">
+                <input  name="color" onChange={(e) => handleEdit(e) } className="edit-inps" placeholder={cardEdit.color}/> 
+            </div>
         </div>
 
         <div className="field-row">
-            <div className="left-item item">Двигатель</div> <div className="right-item item"><input className="edit-inputs" value={cardEdit.engine}/> </div>
+            <div className="left-item item">Двигатель</div> 
+            <div className="right-item item">
+                <input  name="engine" onChange={(e) => handleEdit(e) } className="edit-inps" placeholder={cardEdit.engine}/> 
+            </div>
         </div>
 
         <div className="field-row">
-            <div className="left-item item">Коробка</div> <div className="right-item item"><input className="edit-inputs" value={cardEdit.gearBox}/> </div>
+            <div className="left-item item">Коробка</div> 
+            <div className="right-item item">
+                <input  name="gearBox" onChange={(e) => handleEdit(e) } className="edit-inps" placeholder={cardEdit.gearBox}/> 
+            </div>
         </div>
 
         <div className="field-row">
-            <div className="left-item item">Привод</div> <div className="right-item item"><input className="edit-inputs" value={cardEdit.drive}/> </div>
+            <div className="left-item item">Привод</div> 
+            <div className="right-item item">
+                <input  name="drive" onChange={(e) => handleEdit(e) } className="edit-inps" placeholder={cardEdit.drive}/>
+            </div>
         </div>
 
         <div className="field-row">
-            <div className="left-item item">Руль</div> <div className="right-item item"><input className="edit-inputs" value={cardEdit.wheel}/> </div>
+            <div className="left-item item">Руль</div> 
+            <div className="right-item item">
+                <input  name="wheel" onChange={(e) => handleEdit(e) } className="edit-inps" placeholder={cardEdit.wheel}/>
+            </div>
         </div>
 
         <div className="field-row">
-            <div className="left-item item">Состояние</div> <div className="right-item item"><input className="edit-inputs" value={cardEdit.condition}/> </div>
+            <div className="left-item item">Состояние</div>
+            <div className="right-item item">
+                <input  name="condition" onChange={(e) => handleEdit(e) } className="edit-inps" placeholder={cardEdit.condition}/>
+            </div>
         </div>
 
         <div className="field-row">
-            <div className="left-item item">Наличие</div> <div className="right-item item"><input className="edit-inputs" value={cardEdit.isAvailable}/> </div>
+            <div className="left-item item">Наличие</div>
+            <div className="right-item item">
+                <input  name="isAvailable" onChange={(e) => handleEdit(e) } className="edit-inps" placeholder={cardEdit.isAvailable}/>
+            </div>
         </div>
         <button onClick={() => window.history.back()}>Назад</button>
+        <button onClick={() => handleEditSave()}> save</button>
       
    
        
        
         
-    </div>
-    <div className="car_image_block">
-    <div className="car_image_card"> <img src={cardEdit.img}/><input className="edit-inputs" value={cardEdit.img}/> ссылка к картинке </div>
-    <div className="edit_carDescription"><h3>Описание:</h3><br/>
-        <div><input className="edit-inputs edit-description" value={cardEdit.description}/> </div>
-    </div>
-    </div>
+        </div>
+        <div className="car_image_block">
+            <div className="car_image_card"> 
+                <img src={cardEdit.img}/>
+                    <input  name="img" onChange={(e) => handleEdit(e) } className="edit-inps" placeholder={cardEdit.img}/> ссылка к картинке 
+            </div>
+            
+            <div className="edit_carDescription"><h3>Описание:</h3><br/>
+                 <div>
+                        <input  name="description" onChange={(e) => handleEdit(e) } className="edit-inps edit-description" placeholder={cardEdit.description}/> 
+                 </div>
+            
+            </div>
+     </div>
 </div>
 </div>
             

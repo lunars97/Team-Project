@@ -94,7 +94,7 @@ const CardDetails = (props) => {
     </div>
     <div className="car_image_block">
     <div className="car_image_card"> <img src={cardDetails.img} /></div>
-    <div className="car_description"><h3>Описание:</h3><br/>
+    <div className="edit_carDescription"><h3>Описание:</h3><br/>
         <div>{cardDetails.description}</div>
     </div>
     </div>
