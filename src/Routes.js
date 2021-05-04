@@ -10,6 +10,7 @@ import AuthContextProvider, {
     authContext,
 } from "./contexts/AuthContext/AuthContext";
 import PaymentCard from "./components/PaymentCard/PaymentCard";
+import Basket from "./components/Basket/Basket";
 import CardDetails from "./components/CardDetails/CardDetails";
 import CarEdit from "./components/CarEdit/CarEdit";
 
@@ -39,6 +40,7 @@ const Routes = () => {
                         <Route exact path="/login" component={SignIn} />
                         <Route exact path="/signup" component={SignUp} />
                         <Route exact path="/payment" component={PaymentCard} />
+                        <Route exact path="/basket" component={Basket} />
                     </Switch>
                 </BrowserRouter>
             </ProductContextProvider>

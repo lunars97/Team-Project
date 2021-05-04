@@ -168,10 +168,6 @@ const CarEdit = (props) => {
                                             <option value="silver">
                                                 серебристый
                                             </option>
-
-                                            <option value="#C0C0C0">
-                                                серебристый
-                                            </option>
                                         </select>
                                     </div>
                                 </div>
