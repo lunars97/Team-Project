@@ -1,8 +1,11 @@
+body{
+    background-color: #f57f49;
+}
 .main_container{
     width: 1020px;
     padding: 5px;
-    border: 1px solid blue;
-    background-color: white;
+    /* border: 1px solid blue; */
+    background-color: #F8F8FF;
     margin:0 auto;
     display: flex;
     flex-wrap: wrap; 
@@ -12,7 +15,7 @@
 .cards_container{
     width: 740px;
     padding: 5px;
-    border: 1px solid red;
+    /* border: 1px solid red; */
     max-height: 750px;
     display: flex;
     flex-wrap: wrap;   
@@ -82,7 +85,7 @@ Link{
 
 
 .views_icon{
-    /* background: url('https://www.mashina.kg/bundles/client/default/img/views.svg') no-repeat center 2px; */
+    background: url('https://www.mashina.kg/bundles/client/default/img/views.svg') no-repeat center 2px;
     width:20px;
     height:16px;
     float:right;
@@ -131,18 +134,18 @@ Link{
 }
 
 .advertising_container{
-    /* background: url('http://d2.files.namba.kg/files/186689782') no-repeat; */
+    background: url('http://d2.files.namba.kg/files/186689782') no-repeat;
     width: 199px;
-    border: 1px solid red;
+    /* border: 1px solid red; */
     margin-left: 10px;
     height: 380px;
     margin: 0px 0 10px 10px;
 }
 
 .advertising_second{
-    /* background: url('https://www.mashina.kg/bundles/client/default/img/banners/right-bazar-mar18.jpg') no-repeat; */
+    background: url('https://www.mashina.kg/bundles/client/default/img/banners/right-bazar-mar18.jpg') no-repeat;
     width: 199px;
-    border: 1px solid red;
+    /* border: 1px solid red; */
     margin-left: 10px;
     height: 380px;
     background-size: 100%;

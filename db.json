@@ -3,12 +3,12 @@
     {
       "img": "https://im.mashina.kg/tachka/images//2/2/2/2220d6d8ef47734c3860fa6fe2167e10_640x480.jpg",
       "brand": "Toyota",
-      "dateOfRelease": "1995",
+      "dateOfRelease": "2011",
       "engine": "2.0",
       "wheel": "Слева",
       "gearBox": "фы",
       "drive": "Передний",
-      "color": "#000000",
+      "color": "#C0C0C0",
       "bodyWork": "Седан",
       "isAvailable": "в наличии",
       "model": "Ipsum",
@@ -16,11 +16,11 @@
       "price": "65 000",
       "priceSom": "5 518 500",
       "exchange": "не интересует",
-      "description": "",
+      "description": "как ты могла это всё увидеть ",
       "date": 1620113725049,
       "fuel": "Бензин",
       "km": "140 000",
-      "views": 8,
+      "views": 18,
       "id": 2
     }
   ]

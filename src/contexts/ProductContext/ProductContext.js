@@ -40,6 +40,9 @@ const ProductContextProvider = ({ children }) => {
         getCards();
     }, [page]);
 
+
+
+
     
 
     async function getCards() {
@@ -85,6 +88,8 @@ const ProductContextProvider = ({ children }) => {
         await axios.patch(`http://localhost:8000/cars/${id}`, newCard);
         console.log(newCard)
         getCardDetails(id);
+        
+        
     }
     function handleCloseModal() {
         setModal(false);

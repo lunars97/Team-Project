@@ -12,6 +12,7 @@ const CarEdit = (props) => {
        
     }, [])
 
+
    
 
 
@@ -24,6 +25,7 @@ const CarEdit = (props) => {
         let newObj = {
             ...cardEdit,
             [e.target.name] : e.target.value
+            
          
         };   
         setEditedCar(newObj)
@@ -33,8 +35,7 @@ const CarEdit = (props) => {
 
 
         saveCard(cardEdit.id, EditedCar)
-        // console.log(cardEdit.id)
-        // console.log(newObj)
+        window.location.reload();
     }
 
     
@@ -105,7 +106,22 @@ const CarEdit = (props) => {
         <div className="field-row">
             <div className="left-item item">Цвет</div> 
             <div className="right-item item">
-                <input  name="color" onChange={(e) => handleEdit(e) } className="edit-inps" placeholder={cardEdit.color}/> 
+                        <select name="color" className="edit-inps"
+                            style={{ backgroundColor: cardEdit.color }}
+                            id="cars"
+                            onChange={(e) => handleEdit(e)}
+                        >   
+                            <option value={cardEdit.color} selected>
+                                </option>
+                            <option value="#FFFFFF">белый</option>
+                            <option value="#AF2B1E">красный</option>
+                            <option value="#386646">зеленый</option>
+                            <option value="#00BFFF">голубой</option>
+                            <option value="#1A4780">синий</option>
+                            <option value="#FFBA00">жёлтый</option>
+                            
+                            <option value="#C0C0C0">серебристый</option>
+                        </select> 
             </div>
         </div>
 
@@ -150,8 +166,8 @@ const CarEdit = (props) => {
                 <input  name="isAvailable" onChange={(e) => handleEdit(e) } className="edit-inps" placeholder={cardEdit.isAvailable}/>
             </div>
         </div>
-        <button onClick={() => window.history.back()}>Назад</button>
-        <button onClick={() => handleEditSave()}> save</button>
+        <button className="carDetail-btn" onClick={() => window.history.back()}>Назад</button>
+        <button className="carDetail-btn" onClick={() => handleEditSave()}> save</button>
       
    
        
@@ -172,6 +188,15 @@ const CarEdit = (props) => {
             </div>
      </div>
 </div>
+
+            <div className="cont_reklam_block">
+                <div className="advertising_container">
+                    
+                </div>
+                <div className="advertising_second">
+                    
+                </div>
+            </div>
 </div>
             
             

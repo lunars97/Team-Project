@@ -60,7 +60,7 @@ const CardDetails = (props) => {
 
 
         <div className="field-row">
-            <div className="left-item item">Цвет</div> <div className="right-item item">{cardDetails.color}</div>
+            <div className="left-item item">Цвет</div> <div className="right-item item" style={{background: cardDetails.color}}></div>
         </div>
 
         <div className="field-row">
@@ -87,8 +87,8 @@ const CardDetails = (props) => {
             <div className="left-item item">Наличие</div> <div className="right-item item">{cardDetails.isAvailable}</div>
         </div>
         <br/>
-       <Link to="/"> <button onClick={() =>deleteCar(cardDetails.id)}>Delete</button></Link> 
-       <Link to={`/edit/${cardDetails.id}`}><button >Edit</button> </Link>
+       <Link  to="/"> <button  className="carDetail-btn" onClick={() =>deleteCar(cardDetails.id)}>Delete</button></Link> 
+       <Link  to={`/edit/${cardDetails.id}`}><button  className="carDetail-btn">Edit</button> </Link>
        
         
     </div>
@@ -99,6 +99,15 @@ const CardDetails = (props) => {
     </div>
     </div>
 </div>
+
+            <div className="cont_reklam_block">
+                <div className="advertising_container">
+                    
+                </div>
+                <div className="advertising_second">
+                    
+                </div>
+            </div>
 </div>
 
 </>
