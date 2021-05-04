@@ -33,7 +33,7 @@ const CardDetails = (props) => {
         getCardDetails(props.match.params.id);
     }, [props.match.params.id]);
     
-    console.log(props);
+    // console.log(props);
     return (
         <div>
             {cardDetails ? (

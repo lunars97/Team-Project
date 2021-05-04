@@ -1,13 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import "./ProductCard.css";
 import axios from "axios";
 import { CompareSharp } from "@material-ui/icons";
-
-
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import DetailsIcon from '@material-ui/icons/Details';
+import { productContext } from "../../contexts/ProductContext/ProductContext";
+import IconButton from '@material-ui/core/IconButton';
 
 const ProductCard = (props) => {
-
+const {addProductToCard, checkProductInCart} = useContext(productContext)
     let carId = props.item.id
 
    const Views = async () => {
@@ -69,7 +71,7 @@ const ProductCard = (props) => {
 
    
     return (
-        <Link to={`/details/${props.id}`}>
+        
             <div className="car_card">
                 <img
                     className="card_image"
@@ -109,13 +111,24 @@ const ProductCard = (props) => {
                             alt="car-add"
                         />
                     </div>
+                    <IconButton 
+                        onClick={() => addProductToCard(props.item)} 
+                        color={checkProductInCart(props.item.id) ? "secondary" : "primary"}
+                    >
+                        <ShoppingCartIcon/>
+                    </IconButton>
+                   
+                    <Link to={`/details/${props.id}`}>
+                        <div><DetailsIcon/></div>
+                    </Link>
+                    
                     <div className="city_name">
                         Бишкек
                         <span className="inner-time">11 мин</span>
                     </div>
                 </div>
             </div>
-        </Link>
+        
     );
 };
 export default ProductCard;

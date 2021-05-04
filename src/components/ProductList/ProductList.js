@@ -35,15 +35,6 @@ const ProductList = () => {
 
             </div>
 
-<<<<<<< HEAD
-            <div className="pagination">
-                {arr.map((page) => (
-                    <button className="pageBtn" onClick={() => setPage(page)}>
-                        {page}
-                    </button>
-                ))}
-            </div>
-=======
             <div className="cont_reklam_block">
                 <div className="advertising_container">
                     
@@ -54,7 +45,6 @@ const ProductList = () => {
             </div>
 
            
->>>>>>> b3cdac3d6ce195b2aef4d300c9f5a8f4a1e9e39b
         </div>
     );
 };
