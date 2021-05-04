@@ -6,6 +6,7 @@ const INIT_STATE = {
     productsData: [],
     cardDetails: null,
     allPages: 0,
+    cardEdit: null,
 };
 const reducer = (state = INIT_STATE, action) => {
     switch (action.type) {
@@ -20,6 +21,12 @@ const reducer = (state = INIT_STATE, action) => {
                 ...state,
                 cardDetails: action.payload,
             };
+        case "GET_CARD_EDIT":
+            return {
+                ...state,
+                cardEdit: action.payload,
+            };
+
         default:
             return state;
     }
@@ -32,7 +39,7 @@ const ProductContextProvider = ({ children }) => {
         getCards();
     }, [page]);
 
-    async function getCards(history) {
+    async function getCards() {
         // const search = new URLSearchParams(history.location.search);
         // search.set("_limit", 8);
         // history.push(`${history.location.pathname}${search.toString()}`);
@@ -52,6 +59,11 @@ const ProductContextProvider = ({ children }) => {
         await axios.post("http://localhost:8000/cars", card);
         getCards();
     };
+
+    const patchNewCard = (card) => {
+        console.log(card);
+    };
+
     async function getCardDetails(id) {
         let { data } = await axios.get(`http://localhost:8000/cars/${id}`);
         dispatch({
@@ -59,8 +71,18 @@ const ProductContextProvider = ({ children }) => {
             payload: data,
         });
     }
+
+    async function getCardEdit(id) {
+        let { data } = await axios.get(`http://localhost:8000/cars/${id}`);
+        dispatch({
+            type: "GET_CARD_EDIT",
+            payload: data,
+        });
+    }
+
     async function saveCard(id, newCard) {
         await axios.patch(`http://localhost:8000/cars/${id}`, newCard);
+        console.log(newCard);
         getCardDetails(id);
     }
     async function deleteCar(id) {
@@ -80,14 +102,15 @@ const ProductContextProvider = ({ children }) => {
             value={{
                 productsData: state.productsData,
                 cardDetails: state.cardDetails,
+                cardEdit: state.cardEdit,
                 allPages: state.allPages,
                 getCards,
                 postNewCard,
+                patchNewCard,
                 getCardDetails,
                 setPage,
                 saveCard,
-                deleteCar,
-                addComment,
+                getCardEdit,
             }}
         >
             {children}

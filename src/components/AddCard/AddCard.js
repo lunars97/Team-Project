@@ -223,6 +223,10 @@ const AddCard = () => {
                         <option value="#90021D">бордовый</option>
                         <option value="#510A51">темно-фиолетовый</option>
                         <option value="#011F5E">темно-синий</option>
+                        <option value="#AF2B1E">красный</option>
+                        <option value="#386646">зеленый</option>
+                        <option value="#00BFFF">голубой</option>
+                        <option value="#FFBA00">жёлтый</option>
                         <option value="silver">серебристый</option>
                     </select>
                     <p>

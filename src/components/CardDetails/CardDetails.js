@@ -4,12 +4,14 @@ import "./../CardDetails/CardDetails.css";
 import { Link } from "react-router-dom";
 
 const CardDetails = (props) => {
-    const { getCardDetails, cardDetails, deleteCar, addComment } = useContext(
+    const { getCardDetails, cardDetails, deleteCar } = useContext(
         productContext
     );
 
+    console.log(props.match.params.id);
+
     useEffect(() => {
-        getCardDetails(props.match.params.id);
+        getCardDetails(props.match.params.carId);
     }, [props.match.params.id]);
 
     console.log(props);
@@ -63,17 +65,12 @@ const CardDetails = (props) => {
 
                                 <div className="field-row">
                                     <div className="left-item item">Цвет</div>{" "}
-                                    <div className="right-item item">
-                                        <span
-                                            id="info-color"
-                                            className="color-icon"
-                                            style={{
-                                                backgroundColor:
-                                                    cardDetails.color,
-                                            }}
-                                            title="черный"
-                                        ></span>
-                                    </div>
+                                    <div
+                                        className="right-item item"
+                                        style={{
+                                            background: cardDetails.color,
+                                        }}
+                                    ></div>
                                 </div>
 
                                 <div className="field-row">
@@ -129,6 +126,7 @@ const CardDetails = (props) => {
                                 <Link to="/">
                                     {" "}
                                     <button
+                                        className="carDetail-btn"
                                         onClick={() =>
                                             deleteCar(cardDetails.id)
                                         }
@@ -136,30 +134,30 @@ const CardDetails = (props) => {
                                         Delete
                                     </button>
                                 </Link>
+                                <Link to={`/edit/${cardDetails.id}`}>
+                                    <button className="carDetail-btn">
+                                        Edit
+                                    </button>{" "}
+                                </Link>
                             </div>
                             <div className="car_image_block">
                                 <div className="car_image_card">
                                     {" "}
                                     <img src={cardDetails.img} />
                                 </div>
-                                <div className="car_description">
+                                <div className="edit_carDescription">
                                     <h3>Описание:</h3>
                                     <br />
                                     <div>{cardDetails.description}</div>
                                 </div>
                             </div>
                         </div>
+
+                        <div className="cont_reklam_block">
+                            <div className="advertising_container"></div>
+                            <div className="advertising_second"></div>
+                        </div>
                     </div>
-                    {/* <p>Добавить комментарий</p>
-                    <ul>
-                        {addComment.map((item) => {
-                            <li
-                                key={item.comment}
-                                comment={item.comment}
-                                id={item.comment.id}
-                            ></li>;
-                        })}
-                    </ul> */}
                 </>
             ) : (
                 "Details"
