@@ -4,18 +4,7 @@ import "./ProductCard.css";
 import axios from "axios";
 
 const ProductCard = (props) => {
-    function checktime() {
-        let timeNow = (Date.now() - props.item.date) / 1000 / 60;
-        console.log(timeNow);
-        timeNow = Math.ceil(timeNow);
-        if (timeNow >= 59) {
-            timeNow = timeNow / 60;
-            timeNow = Math.ceil(timeNow);
-            return timeNow + " час.назад";
-        } else {
-            return timeNow + " мин.назад";
-        }
-    }
+    console.log(props.item);
 
     let carId = props.item.id;
 

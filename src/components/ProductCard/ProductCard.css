@@ -75,7 +75,7 @@ Link {
     height: 13px;
     margin: 2px 0 0;
     float: right;
-    border: none;
+   
     -webkit-transform: scale(0.999);
     transform: scale(0.999);
     background-color: #000000;

@@ -97,7 +97,7 @@
 .main_container_car {
     width: 1020px;
     padding: 5px;
-    border: 1px solid blue;
+    /* border: 1px solid blue; */
     background-color: white;
     margin: 0 auto;
     display: flex;
@@ -107,7 +107,7 @@
 .carinfo-container {
     width: 740px;
     padding: 5px;
-    border: 1px solid red;
+    /* border: 1px solid red; */
     max-height: 750px;
     display: flex;
     flex-wrap: wrap;
@@ -159,7 +159,6 @@
 .car_image_card {
     width: 470px;
     height: 300px;
-
     margin: 7px 0 0 5px;
 
     background-size: 100%;
@@ -174,4 +173,38 @@
 
 .car_image_block {
     margin: 20px 0 0 0;
+}
+
+.edit-inps {
+    border: 1px solid #dcdcdc;
+    border-radius: 5px;
+    width: 90px;
+}
+.edit_carDescription {
+    margin-top: 50px;
+    border: 1px solid #dcdcdc;
+    padding: 5px;
+    width: 398px;
+    margin-left: 5px;
+}
+.top-inps {
+    width: 70px;
+    color: black;
+}
+.edit-description {
+    width: 350px;
+    height: 100px;
+    text-align: left;
+}
+.carDetail-btn {
+    margin: 5px;
+    background-color: white;
+    border: 2px dotted #808080;
+    width: 100px;
+}
+
+.carDetail-btn:hover {
+    margin: 5px;
+    background-color: #f1f1f1;
+    border: 2px solid #808080;
 }
