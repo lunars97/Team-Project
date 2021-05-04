@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { productContext } from "../../contexts/ProductContext/ProductContext";
 import "../AddCard/AddCard.css";
 const AddCard = () => {
@@ -22,7 +22,7 @@ const AddCard = () => {
     const [description, setDescription] = useState("");
     const { postNewCard } = useContext(productContext);
     const [km, setKm] = useState("");
-
+    const history = useHistory();
     function convert(e) {
         setPrice(e);
         let som = Math.floor(e * 84.9);

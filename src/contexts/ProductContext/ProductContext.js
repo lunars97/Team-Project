@@ -33,9 +33,9 @@ const ProductContextProvider = ({ children }) => {
     }, [page]);
 
     async function getCards(history) {
-        const search = new URLSearchParams(history.location.search);
-        search.set("_limit", 8);
-        history.push(`${history.location.pathname}${search.toString()}`);
+        // const search = new URLSearchParams(history.location.search);
+        // search.set("_limit", 8);
+        // history.push(`${history.location.pathname}${search.toString()}`);
         let res = await axios.get(
             `http://localhost:8000/cars?_page=${page}&_limit=8&${window.location.search}`
         );
@@ -66,15 +66,15 @@ const ProductContextProvider = ({ children }) => {
     async function deleteCar(id) {
         axios.delete(`http://localhost:8000/cars/${id}`);
     }
-    // async function addComment(comment, id) {
-    //     let {
-    //         data: { comments },
-    //     } = await axios(`http://localhost:8000/cars/${id}`);
+    async function addComment(comment, id) {
+        let {
+            data: { comments },
+        } = await axios(`http://localhost:8000/cars/${id}`);
 
-    //     comments.push(comment);
+        comments.push(comment);
 
-    //     axios.patch(`http://localhost:8000/cars/${id}`, comments);
-    // }
+        axios.patch(`http://localhost:8000/cars/${id}`, comments);
+    }
     return (
         <productContext.Provider
             value={{
@@ -87,7 +87,7 @@ const ProductContextProvider = ({ children }) => {
                 setPage,
                 saveCard,
                 deleteCar,
-                // addComment,
+                addComment,
             }}
         >
             {children}
