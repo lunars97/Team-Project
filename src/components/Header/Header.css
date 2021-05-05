@@ -47,7 +47,12 @@ header {
     background-color: #008ac9;
     border: 1px dotted black;
 }
-
+.typography {
+    display: flex;
+    justify-content: flex-end;
+    /* align-items: center; */
+    width: 80%;
+}
 .under_header {
     width: 1020px;
     height: 25px;
@@ -72,8 +77,8 @@ header {
 
 .reklam_block {
     width: 1030px;
-
-    margin: 0 auto;
+   
+    margin:0 auto;
     background-color: white;
 }
 .advertising {

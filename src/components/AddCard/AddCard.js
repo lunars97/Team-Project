@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { productContext } from "../../contexts/ProductContext/ProductContext";
 import "../AddCard/AddCard.css";
+
 const AddCard = () => {
     const [img, setImg] = useState("");
     const [brand, setBrand] = useState("");
@@ -18,7 +19,7 @@ const AddCard = () => {
     const [condition, setCondition] = useState("");
     const [fuel, setFuel] = useState("");
     const [price, setPrice] = useState("");
-    const [priceSom, setPriceSom] = useState("");
+    const [priceSom,setPriceSom]=useState("")
     const [description, setDescription] = useState("");
     const { postNewCard } = useContext(productContext);
     const [km, setKm] = useState("");
@@ -298,4 +299,5 @@ const AddCard = () => {
         </div>
     );
 };
+
 export default AddCard;

@@ -1,9 +1,18 @@
-import React from "react";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import "./ProductCard.css";
 import axios from "axios";
+import CompareArrowsOutlinedIcon from "@material-ui/icons/CompareArrowsOutlined";
+import DetailsIcon from "@material-ui/icons/Details";
+import { productContext } from "../../contexts/ProductContext/ProductContext";
+import IconButton from "@material-ui/core/IconButton";
+
+
+
+
 
 const ProductCard = (props) => {
+    const { checkProductInCart, addCarToBasket } = useContext(productContext);
     console.log(props.item);
 
     let carId = props.item.id;
@@ -44,74 +53,95 @@ const ProductCard = (props) => {
         );
     };
 
-    function checktime() {
-        let timeNow = (Date.now() - props.item.date) / 1000 / 60;
-        timeNow = Math.ceil(timeNow);
 
-        if (timeNow >= 59 && timeNow <= 1380) {
-            timeNow = timeNow / 60;
-            timeNow = Math.ceil(timeNow);
-            return timeNow + " час назад";
-        } else if (timeNow >= 240) {
-            timeNow = timeNow / 60 / 24;
-            timeNow = Math.round(timeNow);
-            return timeNow + " д. назад";
-        } else {
-            return timeNow + " мин назад";
+ function checktime(){
+     let timeNow = ((Date.now() - props.item.date) / 1000) / 60
+     
+    //  timeNow = Math.ceil(timeNow)
+     
+     if(timeNow >= 58 && timeNow <= 1380){
+         timeNow = (timeNow / 60)
+         timeNow = Math.ceil(timeNow)
+         return timeNow + " час назад"
+   }
+   else if(timeNow >= 240){
+         timeNow = (timeNow / 60 / 24)
+         timeNow = Math.round(timeNow)
+         return timeNow + " д. назад"
+   }
+   else if(timeNow <= 1){
+       timeNow = timeNow * 60
+       timeNow = Math.round(timeNow)
+       return timeNow + " сек назад"
+   }
+     
+     else
+        {   
+            timeNow = Math.round(timeNow)
+            return timeNow + " мин назад"
         }
-    }
+ }
 
     return (
-        <Link onClick={() => Views()} to={`/details/${props.id}`}>
-            <div className="car_card">
-                <img
-                    className="card_image"
-                    src={props.item.img}
-                    alt="auto-img"
-                />
-                <div className="car_name">{props.item.brand}</div>
-                <p className="price">
-                    <div className="views_icon">
-                        <div className="coll">{props.item.views}</div>
-                    </div>
-                    <div className="money1 money">{props.item.price} &#36;</div>
-                    <div className="money2 money">
-                        {props.item.priceSom} сом
-                    </div>
-                </p>
-                <div className="info_wrapper">
-                    <div className="year_miles">
-                        <span>{props.item.dateOfRelease} </span>
-                        <span>{props.item.engine} </span>
-                        <span>{props.item.gearBox} </span>
-                        <span
-                            className="color-icon"
-                            style={{ backgroundColor: props.item.color }}
-                            title="черный"
-                        ></span>
-                    </div>
-                    <div className="body_type">
-                        <span>{props.item.bodyWork}, </span>
-                        <span>{props.item.fuel} </span>
-                    </div>
-                    <div className="volume">
-                        <span>{props.item.wheel}, </span>
-                        <span>{props.item.km} км </span>
-                    </div>
-
+        <div className="car_card">
+            <img className="card_image" src={props.item.img} alt="auto-img" />
+            <div className="car_name">{props.item.brand}</div>
+            <p className="price">
+                <div className="views_icon">
+                    <div className="coll">{props.item.views}</div>
+                </div>
+                <div className="money1 money">{props.item.price} &#36;</div>
+                <div className="money2 money">{props.item.priceSom} сом</div>
+            </p>
+            <div className="info_wrapper">
+                <div className="year_miles">
+                    <span>{props.item.dateOfRelease} </span>
+                    <span>{props.item.engine} </span>
+                    <span>{props.item.gearBox} </span>
+                    <span
+                        className="color-icon"
+                        style={{ backgroundColor: props.item.color }}
+                        title="черный"
+                    ></span>
+                </div>
+                <div className="body_type">
+                    <span>{props.item.bodyWork}, </span>
+                    <span>{props.item.fuel} </span>
+                </div>
+                <div className="volume">
+                    <span>{props.item.wheel}, </span>
+                    <span>{props.item.km} км </span>
+                </div>
+                <div className="icons-wrapper">
                     <div className="card_icons">
                         <img
                             src="https://www.mashina.kg/bundles/client/default/img/product-vip-listing.svg"
                             alt="car-add"
                         />
                     </div>
-                    <div className="city_name">
-                        Бишкек
-                        <span className="inner-time">{checktime()}</span>
-                    </div>
+                    <IconButton
+                        onClick={() => addCarToBasket(props.item)}
+                        color={
+                            checkProductInCart(props.item.id)
+                                ? "secondary"
+                                : "primary"
+                        }
+                    >
+                        <CompareArrowsOutlinedIcon />
+                    </IconButton>
+
+                    <Link to={`/details/${props.id}`}>
+                        <div>
+                            <DetailsIcon />
+                        </div>
+                    </Link>
+                </div>
+                <div className="city_name">
+                    Бишкек
+                    <span className="inner-time">{checktime()}</span>
                 </div>
             </div>
-        </Link>
+        </div>
     );
 };
 export default ProductCard;
