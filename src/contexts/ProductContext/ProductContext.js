@@ -36,6 +36,8 @@ const reducer = (state = INIT_STATE, action) => {
 
         case "CHANGE_BASKET_COUNT":
             return { ...state, basketLength: action.payload };
+        case "GET_CARD_EDIT":
+            return { ...state, cardEdit: action.payload };
         default:
             return state;
     }
@@ -169,6 +171,7 @@ const ProductContextProvider = ({ children }) => {
             payload: data,
         });
     }
+
     async function saveCard(id, newCard) {
         await axios.patch(`http://localhost:8000/cars/${id}`, newCard);
         console.log(newCard);

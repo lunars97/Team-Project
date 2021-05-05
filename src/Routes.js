@@ -46,7 +46,6 @@ const Routes = () => {
             <Route exact path="/" component={Home} />
             <Route exact path="/container" component={Container} />
             <Route exact path="/header" component={Header} />
-            <Route exact path="/edit/:id" component={CarEdit} />
                     </Switch>
                 </BrowserRouter>
             </ProductContextProvider>
