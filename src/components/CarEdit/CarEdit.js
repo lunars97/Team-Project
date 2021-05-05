@@ -23,17 +23,18 @@ const CarEdit = (props) => {
         
 
         let newObj = {
-            ...cardEdit,
+            ...EditedCar,
             [e.target.name] : e.target.value
             
          
         };   
         setEditedCar(newObj)
+        
     }
     
     function handleEditSave(){
 
-
+        console.log(cardEdit.id)
         saveCard(cardEdit.id, EditedCar)
         window.location.reload();
     }
@@ -43,10 +44,7 @@ const CarEdit = (props) => {
   
     
 
-    // useEffect(() => {
-    //     getCardEdit(props.match.params.id);
-      
-    // }, [props.match.params.id]);
+  
 
 
 
@@ -68,10 +66,10 @@ const CarEdit = (props) => {
         
         <div className="sell_som_dollar_block">
             <div className="sell_dollar">
-                $ <input onChange={(e) => handleEdit(e) } className="edit-inps" placeholder={cardEdit.price}/>
+                $ <input name="price"onChange={(e) => handleEdit(e) } className="edit-inps" placeholder={cardEdit.price}/>
             </div>
             <div className="sell_som">Сом 
-                <input onChange={(e) => handleEdit(e) } className="edit-inps" placeholder={cardEdit.priceSom}/>
+                <input name="priceSom" onChange={(e) => handleEdit(e) } className="edit-inps" placeholder={cardEdit.priceSom}/>
             </div>
         </div>
        

@@ -3,12 +3,12 @@
     {
       "img": "https://im.mashina.kg/tachka/images//2/2/2/2220d6d8ef47734c3860fa6fe2167e10_640x480.jpg",
       "brand": "Toyota",
-      "dateOfRelease": "2011",
+      "dateOfRelease": "2020",
       "engine": "2.0",
       "wheel": "Слева",
       "gearBox": "фы",
       "drive": "Передний",
-      "color": "#C0C0C0",
+      "color": "#00BFFF",
       "bodyWork": "Седан",
       "isAvailable": "в наличии",
       "model": "Ipsum",
@@ -20,7 +20,7 @@
       "date": 1620113725049,
       "fuel": "Бензин",
       "km": "140 000",
-      "views": 18,
+      "views": 22,
       "id": 2
     }
   ]

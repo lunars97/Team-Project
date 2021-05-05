@@ -7,7 +7,7 @@ import axios from "axios";
 
 
 const ProductCard = (props) => {
-    console.log(props.item)
+   
 
     let carId = props.item.id
 
@@ -51,9 +51,10 @@ const ProductCard = (props) => {
 
  function checktime(){
      let timeNow = ((Date.now() - props.item.date) / 1000) / 60
-     timeNow = Math.ceil(timeNow)
      
-     if(timeNow >= 59 && timeNow <= 1380){
+    //  timeNow = Math.ceil(timeNow)
+     
+     if(timeNow >= 58 && timeNow <= 1380){
          timeNow = (timeNow / 60)
          timeNow = Math.ceil(timeNow)
          return timeNow + " час назад"
@@ -63,9 +64,17 @@ const ProductCard = (props) => {
          timeNow = Math.round(timeNow)
          return timeNow + " д. назад"
    }
+   else if(timeNow <= 1){
+       timeNow = timeNow * 60
+       timeNow = Math.round(timeNow)
+       return timeNow + " сек назад"
+   }
      
      else
-        {return timeNow + " мин назад"}
+        {   
+            timeNow = Math.round(timeNow)
+            return timeNow + " мин назад"
+        }
  }
 
    

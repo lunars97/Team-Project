@@ -8,6 +8,9 @@ const INIT_STATE = {
     allPages: 0,
     cardEdit: null,
 };
+
+
+
 const reducer = (state = INIT_STATE, action) => {
     switch (action.type) {
         case "GET_CARDS":
@@ -39,6 +42,12 @@ const ProductContextProvider = ({ children }) => {
     useEffect(() => {
         getCards();
     }, [page]);
+
+    // useEffect(() => {
+    //     console.log("asd")
+    //     getCards();
+        
+    // }, [state.productsData]);
 
 
 
@@ -88,7 +97,7 @@ const ProductContextProvider = ({ children }) => {
         await axios.patch(`http://localhost:8000/cars/${id}`, newCard);
         console.log(newCard)
         getCardDetails(id);
-        
+        getCards();
         
     }
     function handleCloseModal() {

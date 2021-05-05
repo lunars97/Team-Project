@@ -90,7 +90,7 @@ const AddCard = () => {
         setPrice("");
         setIsAvailable("");
         setKm("");
-
+        
     }
 
     return (
