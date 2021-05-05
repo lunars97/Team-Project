@@ -3,25 +3,16 @@ import React, { useContext, useEffect, useRef, useState } from "react";
 import Header from "../Header/Header";
 import { CodeSharp } from "@material-ui/icons";
 
-
 const CarEdit = (props) => {
     const { getCardEdit, cardEdit, saveCard } = useContext(productContext);
 
     useEffect(() => {
-        getCardEdit(props.match.params.id)
-       
-    }, [])
+        getCardEdit(props.match.params.id);
+    }, []);
 
-
-   
-
-
-   
     const [EditedCar, setEditedCar] = useState();
 
-    function handleEdit(e){
-        
-
+    function handleEdit(e) {
         let newObj = {
             ...EditedCar,
             [e.target.name] : e.target.value
@@ -31,24 +22,15 @@ const CarEdit = (props) => {
         setEditedCar(newObj)
         
     }
-    
-    function handleEditSave(){
 
         console.log(cardEdit.id)
         saveCard(cardEdit.id, EditedCar)
         window.location.reload();
-    }
-
-    
-
-  
-    
-
-  
 
 
 
-
+    // {
+    // }, [props.match.params.id]);
 
     return (
         <div>
@@ -56,7 +38,7 @@ const CarEdit = (props) => {
                 (<>
             <Header/>
             <div className="main_container_car">
-<div className="carinfo-container">
+    <div className="carinfo-container">
     <div className="sell_name">
         <div className="sell_name_left">
             В продаже: <input name="brand" onChange={(e) => handleEdit(e) } className="edit-inps top-inps" placeholder={cardEdit.brand}/> 

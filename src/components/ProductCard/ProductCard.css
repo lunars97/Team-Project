@@ -45,7 +45,7 @@ Link {
     text-decoration: none !important;
 }
 .card_icons {
-    margin: 10px 0 0 5px;
+    margin: 6px 0 0 5px;
 }
 .city_name {
     font-size: 10px;
@@ -69,13 +69,17 @@ Link {
     left: 17px;
     top: 3px;
 }
-
+.icons-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 .color-icon {
     width: 13px;
     height: 13px;
     margin: 2px 0 0;
     float: right;
-   
+
     -webkit-transform: scale(0.999);
     transform: scale(0.999);
     background-color: #000000;

@@ -212,99 +212,92 @@ const AddCard = () => {
                         />
                     </p>
 
-                        <p>
-                            <input
-                                className="inp-add"
-                                name="km"
-                                value={km}
-                                type="text"
-                                placeholder="Пробег"
-                                
-                                onChange={(e) => setKm(e.target.value)}
-                            />
-                        </p>
-
-
-
-                        <label for="cars">Цвет машины:</label>
-                        <select
-                            id="cars"
-                            onChange={(e) => handleColor(e.target.value)}
-                        >
-                            <option value="#FFFFFF">белый</option>
-                            <option value="#AF2B1E">красный</option>
-                            <option value="#386646">зеленый</option>
-                            <option value="#00BFFF">голубой</option>
-                            <option value="#1A4780">синий</option>
-                            <option value="#FFBA00">жёлтый</option>
-                            <option value="#000000" selected>
-                                черный
-                            </option>
-                            <option value="#C0C0C0">серебристый</option>
-                        </select>
-                        <p>
-                            <input
-                                className="inp-add"
-                                name="condition"
-                                value={condition}
-                                type="text"
-                                placeholder="Состояние"
-                                // onChange={handleValues}
-                                onChange={(e) => setCondition(e.target.value)}
-                            />
-                        </p>
-                        <p>
-                            <input
-                                className="inp-add"
-                                name="isAvailable"
-                                value={isAvailable}
-                                type="text"
-                                placeholder="Наличие"
-                                // onChange={handleValues}
-                                onChange={(e) => setIsAvailable(e.target.value)}
-                            />
-                        </p>
-                        <p>
-                            <input
-                                className="inp-add"
-                                name="exchange"
-                                value={exchange}
-                                type="text"
-                                placeholder="Обмен"
-                                // onChange={handleValues}
-                                onChange={(e) => setExchange(e.target.value)}
-                            />
-                        </p>
-                        <p>
-                            <input
-                                className="inp-add"
-                                name="telephone"
-                                value={price}
-                                type="number"
-                                placeholder="Цена в &#36;"
-                                min="1"
-                                // onChange={handleValues}
-                                onChange={(e) => convert(e.target.value)}
-                            />
-                        </p>
-                        <p>
-                            <textarea
-                                className="inp-add"
-                                name="description"
-                                value={description}
-                                type="text"
-                                placeholder="Описание"
-                                // onChange={handleValues}
-                                onChange={(e) => setDescription(e.target.value)}
-                            />
-                        </p>
-                       <button onClick={() => dollChange()} className="inpBtn">Добавить</button>
-                    </form>
-                    <Link to="/">
-                        <button  className="main-btn">На главную</button>
-                    </Link>
-                </div>
+                    <label htmlFor="cars">Цвет машины:</label>
+                    <select
+                        id="cars"
+                        onChange={(e) => handleColor(e.target.value)}
+                    >
+                        <option value="white">белый</option>
+                        <option value="black" defaultValue>
+                            черный
+                        </option>
+                        <option value="#90021D">бордовый</option>
+                        <option value="#510A51">темно-фиолетовый</option>
+                        <option value="#011F5E">темно-синий</option>
+                        <option value="#AF2B1E">красный</option>
+                        <option value="#386646">зеленый</option>
+                        <option value="#00BFFF">голубой</option>
+                        <option value="#FFBA00">жёлтый</option>
+                        <option value="silver">серебристый</option>
+                    </select>
+                    <p>
+                        <input
+                            className="inp-add"
+                            name="condition"
+                            value={condition}
+                            type="text"
+                            placeholder="Состояние"
+                            // onChange={handleValues}
+                            onChange={(e) => setCondition(e.target.value)}
+                        />
+                    </p>
+                    <p>
+                        <input
+                            className="inp-add"
+                            name="isAvailable"
+                            value={isAvailable}
+                            type="text"
+                            placeholder="Наличие"
+                            // onChange={handleValues}
+                            onChange={(e) => setIsAvailable(e.target.value)}
+                        />
+                    </p>
+                    <p>
+                        <input
+                            className="inp-add"
+                            name="exchange"
+                            value={exchange}
+                            type="text"
+                            placeholder="Обмен"
+                            // onChange={handleValues}
+                            onChange={(e) => setExchange(e.target.value)}
+                        />
+                    </p>
+                    <p>
+                        <input
+                            className="inp-add"
+                            name="telephone"
+                            value={price}
+                            type="number"
+                            placeholder="Цена в &#36;"
+                            min="1"
+                            // onChange={handleValues}
+                            onChange={(e) => convert(e.target.value)}
+                        />
+                    </p>
+                    <p>
+                        <textarea
+                            className="inp-add"
+                            name="description"
+                            value={description}
+                            type="text"
+                            placeholder="Описание"
+                            // onChange={handleValues}
+                            onChange={(e) => setDescription(e.target.value)}
+                        />
+                    </p>
+                    {/* <Link to="/payment"> */}
+                    <button onClick={() => dollChange()} className="inpBtn">
+                        Добавить
+                    </button>
+                    {/* </Link> */}
+                </form>
+                <Link to="/">
+                    <button className="main-btn">На главную</button>
+                </Link>
             </div>
+        </div>
     );
 };
+
 export default AddCard;

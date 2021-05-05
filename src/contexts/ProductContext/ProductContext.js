@@ -1,13 +1,17 @@
 import React, { useEffect, useReducer, useState } from "react";
 import axios from "axios";
-import { calcsubPrice, calcTotalPrice, getCountProductsCart } from '../../Helpers/calcPrice';
+import {
+    calcsubPrice,
+    calcTotalPrice,
+    getCountProductsCart,
+} from "../../Helpers/calcPrice";
 
 export const productContext = React.createContext();
 const INIT_STATE = {
     productsData: [],
     cardDetails: null,
     basket: {},
-    cartLength: getCountProductsCart(),
+    basketLength: getCountProductsCart(),
     allPages: 0,
     cardEdit: null,
 };
@@ -27,23 +31,15 @@ const reducer = (state = INIT_STATE, action) => {
                 ...state,
                 cardDetails: action.payload,
             };
-        case "GET_CART":
-                return {...state, basket: action.payload}
-    
-        case "CHANGE_CART_COUNT":
-                return {...state, cartLength: action.payload}
-                
-        case "GET_CARD_EDIT":
-            return {
-                ...state,
-                cardEdit: action.payload,
-            };
-        
-            default:
+        case "GET_BASKET":
+            return { ...state, basket: action.payload };
+
+        case "CHANGE_BASKET_COUNT":
+            return { ...state, basketLength: action.payload };
+        default:
             return state;
     }
 };
-
 
 const ProductContextProvider = ({ children }) => {
     const [state, dispatch] = useReducer(reducer, INIT_STATE);
@@ -56,13 +52,7 @@ const ProductContextProvider = ({ children }) => {
     async function getCards(history) {
         // const search = new URLSearchParams(history.location.search);
         // search.set("_limit", 8);
-        // history.push(`${history.location.pathname}${search.toString()}`);
-    // useEffect(() => {
-    //     console.log("asd")
-    //     getCards();
-        
-    // }, [state.productsData]);
-
+        // history.push(`${history.location.pathname}?${search.toString()}`);
         let res = await axios.get(
             `http://localhost:8000/cars?_page=${page}&_limit=8&${window.location.search}`
         );
@@ -75,104 +65,95 @@ const ProductContextProvider = ({ children }) => {
         });
     }
 
-
-    function addProductToCard(product){
-        let cart = JSON.parse(localStorage.getItem('cart'));
-        if(!cart){
-            cart = {
-                products: [],
-                totalPrice: 0
-            }
+    function addCarToBasket(car) {
+        let basket = JSON.parse(localStorage.getItem("basket"));
+        if (!basket) {
+            basket = {
+                cars: [],
+                totalPrice: 0,
+            };
         }
-        let newProduct = {
-            item: product,
+        let newCar = {
+            item: car,
             count: 1,
-            subPrice: 0
-        }
-        
+            subPrice: 0,
+        };
 
-        let filteredCart = cart.products.filter(elem => elem.item.id === product.id)
-        if(filteredCart.length >0){
-            cart.products = cart.products.filter(elem => elem.item.id !== product.id)
-        }else{
-            cart.products.push(newProduct)
+        let filteredBasket = basket.cars.filter(
+            (elem) => elem.item.id === car.id
+        );
+        if (filteredBasket.length > 0) {
+            basket.cars = basket.cars.filter((elem) => elem.item.id !== car.id);
+        } else {
+            basket.cars.push(newCar);
         }
 
-        newProduct.subPrice = calcsubPrice(newProduct)
-        cart.totalPrice = calcTotalPrice(cart.products)
-        localStorage.setItem("cart", JSON.stringify(cart))
-        
+        newCar.subPrice = calcsubPrice(newCar);
+        basket.totalPrice = calcTotalPrice(basket.cars);
+        localStorage.setItem("basket", JSON.stringify(basket));
+
         dispatch({
-            type: "CHANGE_CART_COUNT",
-            payload: cart.products.length
-        })
+            type: "CHANGE_BASKET_COUNT",
+            payload: basket.cars.length,
+        });
     }
-  
 
-    function getCart(){
-        let cart = JSON.parse(localStorage.getItem('cart'));
-        if(!cart){
-            cart = {
-                products: [],
-                totalPrice: 0
-            }
+    function getCart() {
+        let basket = JSON.parse(localStorage.getItem("basket"));
+        if (!basket) {
+            basket = {
+                cars: [],
+                totalPrice: 0,
+            };
         }
         dispatch({
-            type: "GET_CART",
-            payload: cart
-        })
+            type: "GET_BASKET",
+            payload: basket,
+        });
     }
 
-    function changeProductCount(count, id){
-        let cart = JSON.parse(localStorage.getItem('cart'));
-        cart.products = cart.products.map(elem => {
-            if(elem.item.id === id){
-                elem.count = count
-                elem.subPrice = calcsubPrice(elem)
+    function changeProductCount(count, id) {
+        let basket = JSON.parse(localStorage.getItem("basket"));
+        basket.cars = basket.cars.map((elem) => {
+            if (elem.item.id === id) {
+                elem.count = count;
+                elem.subPrice = calcsubPrice(elem);
             }
-            return elem
-        })
-        cart.totalPrice = calcTotalPrice(cart.products)
-        localStorage.setItem("cart", JSON.stringify(cart))
-        getCart()
-    }
-
-    function checkProductInCart(id){
-        let cart = JSON.parse(localStorage.getItem('cart'));
-        if(!cart){
-            cart = {
-                products: [],
-                totalPrice: 0
-            }
-        }let newCart =cart.products.filter(elem => elem.item.id ===id)
-            return newCart.length > 0 ? true: false
-    }
-
-    function deleteFromCart(id) {
-        let basket = JSON.parse(localStorage.getItem('cart'));
-        console.log(basket);
-        basket.products = basket.products.filter((elem) => elem.item.id !=id)
-        localStorage.setItem("cart", JSON.stringify(basket))
+            return elem;
+        });
+        basket.totalPrice = calcTotalPrice(basket.cars);
+        localStorage.setItem("basket", JSON.stringify(basket));
         getCart();
     }
 
+    function checkProductInCart(id) {
+        let basket = JSON.parse(localStorage.getItem("basket"));
+        if (!basket) {
+            basket = {
+                cars: [],
+                totalPrice: 0,
+            };
+        }
+        let newBasket = basket.cars.filter((elem) => elem.item.id === id);
+        return newBasket.length > 0 ? true : false;
+    }
 
-
-
-
-
-
+    function deleteFromCart(id) {
+        let basket = JSON.parse(localStorage.getItem("basket"));
+        console.log(basket);
+        basket.cars = basket.cars.filter((elem) => elem.item.id != id);
+        localStorage.setItem("basket", JSON.stringify(basket));
+        getCart();
+    }
 
     const postNewCard = async (card) => {
         await axios.post("http://localhost:8000/cars", card);
         getCards();
     };
 
-    const patchNewCard =  (card) => {
-     
-        console.log(card)
+    const patchNewCard = (card) => {
+        console.log(card);
     };
-    
     async function getCardDetails(id) {
         let { data } = await axios.get(`http://localhost:8000/cars/${id}`);
         dispatch({
@@ -188,13 +169,10 @@ const ProductContextProvider = ({ children }) => {
             payload: data,
         });
     }
-   
     async function saveCard(id, newCard) {
         await axios.patch(`http://localhost:8000/cars/${id}`, newCard);
-        console.log(newCard)
+        console.log(newCard);
         getCardDetails(id);
-        getCards();
-        
     }
     async function deleteCar(id) {
         axios.delete(`http://localhost:8000/cars/${id}`);
@@ -215,23 +193,22 @@ const ProductContextProvider = ({ children }) => {
                 cardDetails: state.cardDetails,
                 cardEdit: state.cardEdit,
                 allPages: state.allPages,
-                cartLength: state.cartLength,
+                basketLength: state.basketLength,
                 basket: state.basket,
                 getCards,
+                getCardEdit,
                 postNewCard,
                 patchNewCard,
                 getCardDetails,
                 setPage,
                 getCart,
                 saveCard,
-                addProductToCard,
+                addCarToBasket,
                 changeProductCount,
                 checkProductInCart,
                 deleteFromCart,
                 deleteCar,
                 addComment,
-                handleCloseModal,
-                getCardEdit,
             }}
         >
             {children}

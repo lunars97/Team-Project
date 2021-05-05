@@ -47,7 +47,12 @@ header {
     background-color: #008ac9;
     border: 1px dotted black;
 }
-
+.typography {
+    display: flex;
+    justify-content: flex-end;
+    /* align-items: center; */
+    width: 80%;
+}
 .under_header {
     width: 1020px;
     height: 25px;
@@ -79,14 +84,14 @@ header {
 .advertising {
     width: 727px;
     height: 90px;
- 
-    
-    background: url('https://www.mashina.kg/bundles/client/default/img/banners/avangard-top-26-apr.gif') no-repeat;
+
+    background: url("https://www.mashina.kg/bundles/client/default/img/banners/avangard-top-26-apr.gif")
+        no-repeat;
 }
 
 .top_header {
     width: 1020px;
-    height: 40px;
+    height: 50px;
     /* border: 1px solid red; */
     padding: 5px;
     margin: 0 auto;

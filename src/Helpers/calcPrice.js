@@ -1,15 +1,15 @@
-export function calcsubPrice(product){
-    return product.count * product.item.price
+export function calcsubPrice(car) {
+    return car.count * car.item.price;
 }
 
-export function calcTotalPrice(products){
+export function calcTotalPrice(cars) {
     let totalPrice = 0;
-    products.forEach(item => {
-        totalPrice += item.subPrice
+    cars.forEach((item) => {
+        totalPrice += item.subPrice;
     });
-    return totalPrice
+    return totalPrice;
 }
-export function getCountProductsCart(){
-    let cart = JSON.parse(localStorage.getItem('cart'));
-    return cart ? cart.products.length : 0
+export function getCountProductsCart() {
+    let basket = JSON.parse(localStorage.getItem("basket"));
+    return basket ? basket.cars.length : 0;
 }

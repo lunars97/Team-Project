@@ -156,11 +156,11 @@
 .left-item {
     color: #808080;
 }
-.car_image_card{
-    width:470px;
-    height:300px;
+.car_image_card {
+    width: 470px;
+    height: 300px;
     margin: 7px 0 0 5px;
-    
+
     background-size: 100%;
 }
 .car_image_card img {
@@ -175,39 +175,36 @@
     margin: 20px 0 0 0;
 }
 
-
-.edit-inps{
-    border: 1px solid #DCDCDC;
+.edit-inps {
+    border: 1px solid #dcdcdc;
     border-radius: 5px;
     width: 90px;
-    
 }
-.edit_carDescription{
-    margin-top:50px;
-    border: 1px solid #DCDCDC;
+.edit_carDescription {
+    margin-top: 50px;
+    border: 1px solid #dcdcdc;
     padding: 5px;
-    width:398px;
-    margin-left:5px;
+    width: 398px;
+    margin-left: 5px;
 }
-.top-inps{
-    width:70px;
-    color:black;
+.top-inps {
+    width: 70px;
+    color: black;
 }
-.edit-description{
+.edit-description {
     width: 350px;
-    height:100px;
-    text-align:left;
-   
+    height: 100px;
+    text-align: left;
 }
-.carDetail-btn{
-    margin:5px;
-    background-color:white;
+.carDetail-btn {
+    margin: 5px;
+    background-color: white;
     border: 2px dotted #808080;
-    width:100px;
+    width: 100px;
 }
 
-.carDetail-btn:hover{
-    margin:5px;
-    background-color:#f1f1f1;
+.carDetail-btn:hover {
+    margin: 5px;
+    background-color: #f1f1f1;
     border: 2px solid #808080;
 }
