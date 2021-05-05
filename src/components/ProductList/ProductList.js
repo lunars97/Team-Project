@@ -14,6 +14,7 @@ const ProductList = () => {
     }
 
     useEffect(() => {
+        console.log("ASDASD")
         getCards();
     }, []);
     return (

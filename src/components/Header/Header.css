@@ -72,22 +72,22 @@ header {
 
 .reklam_block {
     width: 1030px;
-    border: 1px solid green;
-    margin: 0 auto;
+   
+    margin:0 auto;
+    background-color: white;
 }
 .advertising {
     width: 727px;
     height: 90px;
-
-    border: 1px solid red;
-    background: url("https://www.mashina.kg/bundles/client/default/img/banners/avangard-top-26-apr.gif")
-        no-repeat;
+ 
+    
+    background: url('https://www.mashina.kg/bundles/client/default/img/banners/avangard-top-26-apr.gif') no-repeat;
 }
 
 .top_header {
     width: 1020px;
     height: 40px;
-    border: 1px solid red;
+    /* border: 1px solid red; */
     padding: 5px;
     margin: 0 auto;
     display: flex;

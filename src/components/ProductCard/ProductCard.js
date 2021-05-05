@@ -8,20 +8,12 @@ import DetailsIcon from '@material-ui/icons/Details';
 import { productContext } from "../../contexts/ProductContext/ProductContext";
 import IconButton from '@material-ui/core/IconButton';
 
+
+
+
+
 const ProductCard = (props) => {
-const {addProductToCard, checkProductInCart} = useContext(productContext)
-    function checktime() {
-        let timeNow = (Date.now() - props.item.date) / 1000 / 60;
-        console.log(timeNow);
-        timeNow = Math.ceil(timeNow);
-        if (timeNow >= 59) {
-            timeNow = timeNow / 60;
-            timeNow = Math.ceil(timeNow);
-            return timeNow + " час.назад";
-        } else {
-            return timeNow + " мин.назад";
-        }
-    }
+   
 
     let carId = props.item.id;
 
@@ -61,22 +53,34 @@ const {addProductToCard, checkProductInCart} = useContext(productContext)
         );
     };
 
-    function checktime() {
-        let timeNow = (Date.now() - props.item.date) / 1000 / 60;
-        timeNow = Math.ceil(timeNow);
 
-        if (timeNow >= 59 && timeNow <= 1380) {
-            timeNow = timeNow / 60;
-            timeNow = Math.ceil(timeNow);
-            return timeNow + " час назад";
-        } else if (timeNow >= 240) {
-            timeNow = timeNow / 60 / 24;
-            timeNow = Math.round(timeNow);
-            return timeNow + " д. назад";
-        } else {
-            return timeNow + " мин назад";
+ function checktime(){
+     let timeNow = ((Date.now() - props.item.date) / 1000) / 60
+     
+    //  timeNow = Math.ceil(timeNow)
+     
+     if(timeNow >= 58 && timeNow <= 1380){
+         timeNow = (timeNow / 60)
+         timeNow = Math.ceil(timeNow)
+         return timeNow + " час назад"
+   }
+   else if(timeNow >= 240){
+         timeNow = (timeNow / 60 / 24)
+         timeNow = Math.round(timeNow)
+         return timeNow + " д. назад"
+   }
+   else if(timeNow <= 1){
+       timeNow = timeNow * 60
+       timeNow = Math.round(timeNow)
+       return timeNow + " сек назад"
+   }
+     
+     else
+        {   
+            timeNow = Math.round(timeNow)
+            return timeNow + " мин назад"
         }
-    }
+ }
 
     return (
             <div className="car_card">

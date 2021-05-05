@@ -12,6 +12,7 @@ import AuthContextProvider, {
 import PaymentCard from "./components/PaymentCard/PaymentCard";
 import Basket from "./components/Basket/Basket"
 import CardDetails from "./components/CardDetails/CardDetails";
+import CarEdit from "./components/CarEdit/CarEdit";
 
 const Routes = () => {
     const { checkAuth } = useContext(authContext);
@@ -39,10 +40,15 @@ const Routes = () => {
                         <Route exact path="/signup" component={SignUp} />
                         <Route exact path="/payment" component={PaymentCard} />
                         <Route exact path="/basket" component={Basket} />
+            <Route exact path="/" component={Home} />
+            <Route exact path="/container" component={Container} />
+            <Route exact path="/header" component={Header} />
+            <Route exact path="/edit/:id" component={CarEdit} />
                     </Switch>
                 </BrowserRouter>
             </ProductContextProvider>
         </AuthContextProvider>
+        
     );
 };
 export default Routes;

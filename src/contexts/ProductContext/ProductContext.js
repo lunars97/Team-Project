@@ -9,7 +9,11 @@ const INIT_STATE = {
     basket: {},
     cartLength: getCountProductsCart(),
     allPages: 0,
+    cardEdit: null,
 };
+
+
+
 const reducer = (state = INIT_STATE, action) => {
     switch (action.type) {
         case "GET_CARDS":
@@ -28,7 +32,14 @@ const reducer = (state = INIT_STATE, action) => {
     
         case "CHANGE_CART_COUNT":
                 return {...state, cartLength: action.payload}
-        default:
+                
+        case "GET_CARD_EDIT":
+            return {
+                ...state,
+                cardEdit: action.payload,
+            };
+        
+            default:
             return state;
     }
 };
@@ -46,6 +57,12 @@ const ProductContextProvider = ({ children }) => {
         // const search = new URLSearchParams(history.location.search);
         // search.set("_limit", 8);
         // history.push(`${history.location.pathname}${search.toString()}`);
+    // useEffect(() => {
+    //     console.log("asd")
+    //     getCards();
+        
+    // }, [state.productsData]);
+
         let res = await axios.get(
             `http://localhost:8000/cars?_page=${page}&_limit=8&${window.location.search}`
         );
@@ -150,6 +167,12 @@ const ProductContextProvider = ({ children }) => {
         await axios.post("http://localhost:8000/cars", card);
         getCards();
     };
+
+    const patchNewCard =  (card) => {
+     
+        console.log(card)
+    };
+    
     async function getCardDetails(id) {
         let { data } = await axios.get(`http://localhost:8000/cars/${id}`);
         dispatch({
@@ -157,9 +180,21 @@ const ProductContextProvider = ({ children }) => {
             payload: data,
         });
     }
+
+    async function getCardEdit(id) {
+        let { data } = await axios.get(`http://localhost:8000/cars/${id}`);
+        dispatch({
+            type: "GET_CARD_EDIT",
+            payload: data,
+        });
+    }
+   
     async function saveCard(id, newCard) {
         await axios.patch(`http://localhost:8000/cars/${id}`, newCard);
+        console.log(newCard)
         getCardDetails(id);
+        getCards();
+        
     }
     async function deleteCar(id) {
         axios.delete(`http://localhost:8000/cars/${id}`);
@@ -178,11 +213,13 @@ const ProductContextProvider = ({ children }) => {
             value={{
                 productsData: state.productsData,
                 cardDetails: state.cardDetails,
+                cardEdit: state.cardEdit,
                 allPages: state.allPages,
                 cartLength: state.cartLength,
                 basket: state.basket,
                 getCards,
                 postNewCard,
+                patchNewCard,
                 getCardDetails,
                 setPage,
                 getCart,
@@ -193,6 +230,8 @@ const ProductContextProvider = ({ children }) => {
                 deleteFromCart,
                 deleteCar,
                 addComment,
+                handleCloseModal,
+                getCardEdit,
             }}
         >
             {children}
