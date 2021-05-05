@@ -4,7 +4,7 @@ import Header from "../Header/Header";
 import { CodeSharp } from "@material-ui/icons";
 
 const CarEdit = (props) => {
-    const { getCardEdit, cardEdit, saveCard } = useContext(productContext);
+    const { getCardEdit, cardEdit, saveCard, handleEditSave } = useContext(productContext);
 
     useEffect(() => {
         getCardEdit(props.match.params.id);
@@ -23,9 +23,9 @@ const CarEdit = (props) => {
         
     }
 
-        console.log(cardEdit.id)
-        saveCard(cardEdit.id, EditedCar)
-        window.location.reload();
+        // console.log(cardEdit.id)
+        // saveCard(cardEdit.id, EditedCar)
+        // window.location.reload();
 
 
 

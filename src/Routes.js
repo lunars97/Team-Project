@@ -13,6 +13,8 @@ import PaymentCard from "./components/PaymentCard/PaymentCard";
 import Basket from "./components/Basket/Basket";
 import CardDetails from "./components/CardDetails/CardDetails";
 import CarEdit from "./components/CarEdit/CarEdit";
+import Home from "./components/Home/Home"
+import Container from './components/Container/Container'
 
 const Routes = () => {
     const { checkAuth } = useContext(authContext);
