@@ -1,7 +1,6 @@
 import { CircularProgress } from "@material-ui/core";
 import React, { useContext, useEffect } from "react";
 import { productContext } from "../../contexts/ProductContext/ProductContext";
-import { calcTotalPrice } from "../../Helpers/calcPrice";
 import "./Basket.css";
 import { Link } from "react-router-dom";
 import DetailsIcon from "@material-ui/icons/Details";

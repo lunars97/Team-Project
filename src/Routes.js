@@ -13,8 +13,8 @@ import PaymentCard from "./components/PaymentCard/PaymentCard";
 import Basket from "./components/Basket/Basket";
 import CardDetails from "./components/CardDetails/CardDetails";
 import CarEdit from "./components/CarEdit/CarEdit";
-import Home from "./components/Home/Home"
-import Container from './components/Container/Container'
+import Home from "./components/Home/Home";
+import Container from "./components/Container/Container";
 
 const Routes = () => {
     const { checkAuth } = useContext(authContext);
@@ -27,8 +27,8 @@ const Routes = () => {
     }, []);
     return (
         <AuthContextProvider>
-            <ProductContextProvider>
-                <BrowserRouter>
+            <BrowserRouter>
+                <ProductContextProvider>
                     <Header />
                     <Switch>
                         <Route exact path="/" component={ProductList} />
@@ -43,12 +43,12 @@ const Routes = () => {
                         <Route exact path="/signup" component={SignUp} />
                         <Route exact path="/payment" component={PaymentCard} />
                         <Route exact path="/basket" component={Basket} />
-            <Route exact path="/" component={Home} />
-            <Route exact path="/container" component={Container} />
-            <Route exact path="/header" component={Header} />
+                        <Route exact path="/" component={Home} />
+                        <Route exact path="/container" component={Container} />
+                        <Route exact path="/header" component={Header} />
                     </Switch>
-                </BrowserRouter>
-            </ProductContextProvider>
+                </ProductContextProvider>
+            </BrowserRouter>
         </AuthContextProvider>
     );
 };

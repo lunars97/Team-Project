@@ -5,6 +5,7 @@ import {
     calcTotalPrice,
     getCountProductsCart,
 } from "../../Helpers/calcPrice";
+import { useHistory } from "react-router";
 
 export const productContext = React.createContext();
 const INIT_STATE = {
@@ -15,8 +16,6 @@ const INIT_STATE = {
     allPages: 0,
     cardEdit: null,
 };
-
-
 
 const reducer = (state = INIT_STATE, action) => {
     switch (action.type) {
@@ -46,15 +45,16 @@ const reducer = (state = INIT_STATE, action) => {
 const ProductContextProvider = ({ children }) => {
     const [state, dispatch] = useReducer(reducer, INIT_STATE);
     const [page, setPage] = useState(1);
+    const history = useHistory();
 
     useEffect(() => {
-        getCards();
+        getCards(history);
     }, [page]);
 
     async function getCards(history) {
-        // const search = new URLSearchParams(history.location.search);
-        // search.set("_limit", 8);
-        // history.push(`${history.location.pathname}?${search.toString()}`);
+        const search = new URLSearchParams(history.location.search);
+        search.set("_limit", 8);
+        history.push(`${history.location.pathname}?${search.toString()}`);
         let res = await axios.get(
             `http://localhost:8000/cars?_page=${page}&_limit=8&${window.location.search}`
         );
@@ -148,9 +148,9 @@ const ProductContextProvider = ({ children }) => {
         getCart();
     }
 
-    const postNewCard = async (card) => {
+    const postNewCard = async (card, history) => {
         await axios.post("http://localhost:8000/cars", card);
-        getCards();
+        getCards(history);
     };
 
     const patchNewCard = (card) => {
