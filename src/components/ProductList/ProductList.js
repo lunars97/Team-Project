@@ -3,7 +3,7 @@ import { productContext } from "../../contexts/ProductContext/ProductContext";
 import ProductCard from "../ProductCard/ProductCard";
 import "./../ProductList/ProductList.css";
 
-const ProductList = () => {
+const ProductList = ({ history }) => {
     const { getCards, productsData, allPages, setPage } = useContext(
         productContext
     );
@@ -14,8 +14,7 @@ const ProductList = () => {
     }
 
     useEffect(() => {
-        console.log("ASDASD")
-        getCards();
+        getCards(history);
     }, []);
     return (
         <div className="main_container">

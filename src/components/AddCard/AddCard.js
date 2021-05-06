@@ -4,6 +4,7 @@ import { productContext } from "../../contexts/ProductContext/ProductContext";
 import "../AddCard/AddCard.css";
 
 const AddCard = () => {
+    const history = useHistory();
     const [img, setImg] = useState("");
     const [brand, setBrand] = useState("");
     const [dateOfRelease, setDateOfRelease] = useState("");
@@ -19,11 +20,11 @@ const AddCard = () => {
     const [condition, setCondition] = useState("");
     const [fuel, setFuel] = useState("");
     const [price, setPrice] = useState("");
-    const [priceSom,setPriceSom]=useState("")
+    const [priceSom, setPriceSom] = useState("");
     const [description, setDescription] = useState("");
     const { postNewCard } = useContext(productContext);
     const [km, setKm] = useState("");
-    const history = useHistory();
+
     function convert(e) {
         setPrice(e);
         let som = Math.floor(e * 84.9);
@@ -65,7 +66,7 @@ const AddCard = () => {
             km: km,
             views: 1,
         };
-        postNewCard(newObj);
+        postNewCard(newObj, history);
         setImg("");
         setExchange("");
         setBrand("");
@@ -83,6 +84,7 @@ const AddCard = () => {
         setPrice("");
         setIsAvailable("");
         setKm("");
+        history.push("/payment");
     }
 
     return (

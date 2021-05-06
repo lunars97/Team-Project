@@ -23,6 +23,8 @@ th {
     display: flex;
     justify-content: center;
     font-size: 14px;
+    background-color: #fff;
+    width: 70%;
 }
 .remove-icon {
     background-color: #008ac9;
